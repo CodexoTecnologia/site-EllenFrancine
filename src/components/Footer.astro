@@ -22,6 +22,26 @@ import { site, locationLabel } from '../config/site';
       <p>{locationLabel}</p>
     </div>
   </div>
+  <div class="shell footer-credit">
+    <a
+      class="codexo-credit"
+      href="https://codexo.com.br"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Design e desenvolvimento por Codexo — conheça nosso trabalho"
+    >
+      <span class="codexo-credit-copy">
+        <span class="codexo-credit-title">Design & desenvolvimento</span>
+        <span class="codexo-credit-caption">Conheça o trabalho da Codexo</span>
+      </span>
+      <span class="codexo-credit-brand">
+        <img src="/brand/codexo-white.svg" alt="Codexo" width="180" height="64" loading="lazy" />
+        <span class="codexo-credit-arrow" aria-hidden="true">
+          <Icon size={22} />
+        </span>
+      </span>
+    </a>
+  </div>
   <div class="shell footer-bottom">
     <span>© {new Date().getFullYear()} Ellen Francine</span>
     <a href="/privacidade/">Privacidade</a>
@@ -29,8 +49,5 @@ import { site, locationLabel } from '../config/site';
       <span data-motion-label>Movimento</span>
       <Icon name="spark" size={13} />
     </button>
-    <a href="https://codexo.com.br" target="_blank" rel="noopener noreferrer">
-      Design & desenvolvimento <strong>Codexo</strong> <Icon size={12} />
-    </a>
   </div>
 </footer>

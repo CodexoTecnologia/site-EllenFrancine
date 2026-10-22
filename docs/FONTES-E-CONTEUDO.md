@@ -23,6 +23,8 @@ Uma ilustração editorial chegou a ser gerada durante o início do trabalho, an
 
 ## Referências técnicas
 
+A assinatura de desenvolvimento usa `public/brand/codexo-white.svg`, cópia da logo oficial `site-Codexo/public/assets/logo/logo_codexo_nome_branco.svg`, solicitada pelo usuário. Proporções e desenho preservados.
+
 - https://docs.astro.build/en/guides/deploy/vercel/
 - https://docs.astro.build/en/guides/deploy/cloudflare/
 - https://gsap.com/docs/v3/Installation/

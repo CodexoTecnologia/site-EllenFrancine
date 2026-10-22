@@ -733,18 +733,68 @@ a:focus-visible {
   border-top: 1px solid var(--line);
   padding-block: var(--s4);
   color: var(--muted);
-  font-size: 9px;
+  font-size: 11px;
 }
-.footer-bottom > a:last-child {
+.footer-credit {
+  padding-bottom: var(--s5);
+}
+.codexo-credit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s5);
+  padding: 28px 32px;
+  background: var(--surface);
+  border: 1px solid var(--control-line);
+  border-left: 3px solid var(--rose);
+  border-radius: var(--radius-panel);
+  text-decoration: none;
+  transition:
+    background var(--base),
+    border-color var(--base);
+}
+.codexo-credit:is(:hover, :focus-visible) {
+  background: var(--surface-raised);
+  border-color: var(--rose);
+}
+.codexo-credit-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.codexo-credit-title {
+  font: 600 clamp(20px, 2vw, 26px)/1.35 var(--display);
+  letter-spacing: -0.035em;
+  color: var(--paper);
+}
+.codexo-credit-caption {
+  font-size: 12px;
+  color: var(--rose);
+}
+.codexo-credit-brand {
   display: flex;
   align-items: center;
-  gap: 7px;
-  margin-left: auto;
-  text-decoration: none;
+  gap: var(--s5);
+  flex-shrink: 0;
 }
-.footer-bottom strong {
-  color: var(--paper);
-  font-weight: 600;
+.codexo-credit-brand img {
+  width: 144px;
+  height: auto;
+}
+.codexo-credit-arrow {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 1px solid var(--control-line);
+  border-radius: 50%;
+  color: var(--rose);
+}
+.codexo-credit-arrow svg {
+  transition: transform var(--fast) var(--ease);
+}
+.codexo-credit:is(:hover, :focus-visible) .codexo-credit-arrow svg {
+  transform: translate(2px, -2px);
 }
 /* Páginas internas */
 .page-hero {
@@ -1375,13 +1425,21 @@ a:focus-visible {
   }
   .footer-bottom {
     flex-wrap: wrap;
-    font-size: 8px;
+    font-size: 10px;
     gap: 14px;
   }
-  .footer-bottom > a:last-child {
-    margin-left: 0;
-    flex-basis: 100%;
-    min-height: 24px;
+  .codexo-credit {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 24px;
+    gap: 24px;
+  }
+  .codexo-credit-brand {
+    justify-content: space-between;
+    gap: 16px;
+  }
+  .codexo-credit-caption {
+    font-size: 11px;
   }
   .page-hero {
     padding-block: var(--s6) var(--s7);
@@ -2125,12 +2183,18 @@ html[data-motion='reduced']::view-transition-new(root) {
 html[data-motion='reduced'] .style-option button svg {
   transform: none;
 }
+html[data-motion='reduced'] .codexo-credit-arrow svg {
+  transform: none;
+}
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
   }
   .style-option button svg {
+    transform: none;
+  }
+  .codexo-credit-arrow svg {
     transform: none;
   }
 }
