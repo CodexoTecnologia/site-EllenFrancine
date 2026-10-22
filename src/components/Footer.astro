@@ -3,7 +3,31 @@ import Brand from './Brand.astro';
 import Icon from './Icon.astro';
 import { site, locationLabel } from '../config/site';
 ---
+
 <footer class="site-footer">
-  <div class="shell footer-main"><div><Brand /><p>Seu olhar merece esse carinho.</p></div><div><span class="eyebrow">ENCONTRE A ELLEN</span><a class="footer-instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">{site.instagramHandle}<Icon name="instagram" size={18} /></a><p>{locationLabel}</p></div></div>
-  <div class="shell footer-bottom"><span>© {new Date().getFullYear()} Ellen Francine</span><a href="/privacidade/">Privacidade</a><button class="motion-toggle" data-motion-toggle type="button" aria-pressed="false" hidden><span data-motion-label>Movimento</span><Icon name="spark" size={13} /></button><a href="https://codexo.com.br" target="_blank" rel="noopener noreferrer">Design & desenvolvimento <strong>Codexo</strong> <Icon size={12} /></a></div>
+  <div class="shell footer-main">
+    <div>
+      <Brand />
+      <p>Seu olhar merece esse carinho.</p>
+    </div>
+    <div>
+      <span class="eyebrow">ENCONTRE A ELLEN</span>
+      <a class="footer-instagram" href={site.instagram} target="_blank" rel="noopener noreferrer">
+        {site.instagramHandle}
+        <Icon name="instagram" size={18} />
+      </a>
+      <p>{locationLabel}</p>
+    </div>
+  </div>
+  <div class="shell footer-bottom">
+    <span>© {new Date().getFullYear()} Ellen Francine</span>
+    <a href="/privacidade/">Privacidade</a>
+    <button class="motion-toggle" data-motion-toggle type="button" aria-pressed="false" hidden>
+      <span data-motion-label>Movimento</span>
+      <Icon name="spark" size={13} />
+    </button>
+    <a href="https://codexo.com.br" target="_blank" rel="noopener noreferrer">
+      Design & desenvolvimento <strong>Codexo</strong> <Icon size={12} />
+    </a>
+  </div>
 </footer>

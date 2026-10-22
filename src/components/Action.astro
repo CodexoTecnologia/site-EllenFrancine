@@ -1,8 +1,22 @@
 ---
 import Icon from './Icon.astro';
-interface Props { href: string; variant?: 'primary' | 'secondary' | 'text'; external?: boolean; class?: string; }
+interface Props {
+  href: string;
+  variant?: 'primary' | 'secondary' | 'text';
+  external?: boolean;
+  class?: string;
+}
 const { href, variant = 'primary', external = false, class: className } = Astro.props;
 ---
-<a class:list={['action', `action--${variant}`, className]} href={href} target={external ? '_blank' : undefined} rel={external ? 'noopener noreferrer' : undefined}>
-  <span><slot /></span><Icon />
+
+<a
+  class:list={['action', `action--${variant}`, className]}
+  href={href}
+  target={external ? '_blank' : undefined}
+  rel={external ? 'noopener noreferrer' : undefined}
+>
+  <span>
+    <slot />
+  </span>
+  <Icon />
 </a>

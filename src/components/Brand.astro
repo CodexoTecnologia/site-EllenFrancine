@@ -1,8 +1,20 @@
 ---
-interface Props { compact?: boolean; }
+interface Props {
+  compact?: boolean;
+}
 const { compact = false } = Astro.props;
 ---
-<a class:list={['brand', { 'brand--compact': compact }]} href="/" aria-label="Ellen Francine — início">
-  <span class="brand-name">Ellen Francine<span class="brand-star" aria-hidden="true">✦</span></span>
+
+<a
+  class:list={['brand', { 'brand--compact': compact }]}
+  href="/"
+  aria-label="Ellen Francine — início"
+>
+  <span class="brand-name">
+    Ellen Francine
+    <span class="brand-star" aria-hidden="true">
+      ✦
+    </span>
+  </span>
   <span class="brand-caption">LASH DESIGNER</span>
 </a>

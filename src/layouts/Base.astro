@@ -5,35 +5,61 @@ import { site } from '../config/site';
 import '../styles/tokens.css';
 import '../styles/global.css';
 
-interface Props { title: string; description?: string; }
+interface Props {
+  title: string;
+  description?: string;
+}
 const { title, description = site.description } = Astro.props;
 const canonical = site.domain ? new URL(Astro.url.pathname, site.domain).href : undefined;
-const socialOrigin = site.domain || (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://127.0.0.1:4327');
+const socialOrigin =
+  site.domain ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://127.0.0.1:4327');
 const socialImage = new URL('/og-image.jpg', socialOrigin).href;
 ---
+
 <!doctype html>
 <html lang="pt-BR">
   <head>
-    <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title} | Ellen Francine</title><meta name="description" content={description} />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} | Ellen Francine</title>
+    <meta name="description" content={description} />
     <meta name="robots" content={site.preview ? 'noindex, nofollow' : 'index, follow'} />
     <meta name="theme-color" content="#100d0f" />
     {canonical && <link rel="canonical" href={canonical} />}
-    <meta property="og:type" content="website" /><meta property="og:locale" content="pt_BR" />
-    <meta property="og:site_name" content={site.name} /><meta property="og:title" content={`${title} | Ellen Francine`} />
-    <meta property="og:description" content={description} /><meta property="og:image" content={socialImage} />
-    <meta property="og:image:width" content="1200" /><meta property="og:image:height" content="630" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:site_name" content={site.name} />
+    <meta property="og:title" content={`${title} | Ellen Francine`} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={socialImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Ellen Francine — Lash Designer em Colombo" />
     {canonical && <meta property="og:url" content={canonical} />}
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preload" href="/fonts/lora-600-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link
+      rel="preload"
+      href="/fonts/lora-600-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   </head>
   <body>
-    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-    {site.preview && <div class="preview-note">Uma primeira versão, feita para a Ellen conhecer e sentir a ideia.</div>}
+    <a class="skip-link" href="#conteudo">
+      Pular para o conteúdo
+    </a>
+    {site.preview && (
+      <div class="preview-note">
+        Uma primeira versão, feita para a Ellen conhecer e sentir a ideia.
+      </div>
+    )}
     <Header />
-    <main id="conteudo"><slot /></main>
+    <main id="conteudo">
+      <slot />
+    </main>
     <Footer />
     <script>
       import { initSite } from '../scripts/site';

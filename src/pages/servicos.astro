@@ -8,10 +8,110 @@ import ContactSection from '../components/ContactSection.astro';
 import { site } from '../config/site';
 import { gallery, styles } from '../data/content';
 ---
-<Base title="Extensão de cílios e modelos para treinamento em Colombo" description="Conheça a proposta de atendimento da Ellen Francine em Roça Grande, Colombo. Converse pelo Instagram sobre extensão de cílios e modelos para treinamento.">
-  <PageHero eyebrow="O ATENDIMENTO" title="O ponto de partida" accent="é o seu olhar." description="Um olhar delicado, definido ou marcante. Primeiro, vamos conversar sobre o que você gosta e conhecer as possibilidades do atendimento." />
-  <section class="section paper" data-surface="light"><div class="shell detail-grid"><figure class="detail-photo"><Image src={gallery[1].image} alt={gallery[1].alt} widths={[480,800,1100]} sizes="(max-width:760px) 90vw,45vw" format="webp" loading="eager" style="object-position:42% 40%" /></figure><div><p class="eyebrow">EXTENSÃO DE CÍLIOS</p><h2>Um carinho a mais<br /><span>para o seu olhar.</span></h2><p class="section-lead">Estou começando minha jornada como Lash Designer e quero dividir esse novo capítulo com você.</p><p class="muted-copy">Neste momento, estou procurando modelos para treinamento. No direct, conversamos sobre as condições, a técnica disponível e o tempo necessário para o atendimento.</p><Action href={site.contactUrl} external>Conversar sobre o atendimento</Action><p class="plain-note">Técnicas, valores, duração e orientações são confirmados diretamente com a Ellen antes de combinar o horário.</p></div></div></section>
-  <section class="section shell"><div class="section-heading"><div><p class="eyebrow">REFERÊNCIAS PARA NOSSA CONVERSA</p><h2>Cada estilo,<br /><span>uma expressão.</span></h2></div><p>Esses desenhos são inspirações visuais. Eles ajudam a contar qual estilo você gosta; não representam um catálogo de técnicas confirmadas.</p></div><div class="style-rows">{styles.map(style=><article id={style.id}><span>{style.number}</span><div><h3>{style.name}</h3><p>{style.description}</p><p class="plain-note">{style.note}</p></div><LashStudy variant={style.curve} /></article>)}</div></section>
-  <section class="section blush" data-surface="light"><div class="shell"><p class="eyebrow">UM PASSO DE CADA VEZ</p><h2>Da primeira mensagem<br /><span>ao horário combinado.</span></h2><ol class="steps-list"><li><span>01</span><h3>Me chama no direct</h3><p>Conte que conheceu o site e se tem interesse em atendimento ou em ser modelo.</p></li><li><span>02</span><h3>Vamos tirar as dúvidas</h3><p>Converse sobre as condições, o estilo desejado, o tempo e os cuidados envolvidos.</p></li><li><span>03</span><h3>Combine o seu horário</h3><p>Confirme a disponibilidade e o endereço diretamente com a Ellen.</p></li></ol></div></section>
+
+<Base
+  title="Extensão de cílios e modelos para treinamento em Colombo"
+  description="Conheça a proposta de atendimento da Ellen Francine em Roça Grande, Colombo. Converse pelo Instagram sobre extensão de cílios e modelos para treinamento."
+>
+  <PageHero
+    eyebrow="O ATENDIMENTO"
+    title="O ponto de partida"
+    accent="é o seu olhar."
+    description="Um olhar delicado, definido ou marcante. Primeiro, vamos conversar sobre o que você gosta e conhecer as possibilidades do atendimento."
+  />
+  <section class="section paper" data-surface="light">
+    <div class="shell detail-grid">
+      <figure class="detail-photo">
+        <Image
+          src={gallery[1].image}
+          alt={gallery[1].alt}
+          widths={[480, 800, 1100]}
+          sizes="(max-width:760px) 90vw,45vw"
+          format="webp"
+          loading="eager"
+          style="object-position:42% 40%"
+        />
+      </figure>
+      <div>
+        <p class="eyebrow">EXTENSÃO DE CÍLIOS</p>
+        <h2>
+          Um carinho a mais
+          <br />
+          <span>para o seu olhar.</span>
+        </h2>
+        <p class="section-lead">
+          Estou começando minha jornada como Lash Designer e quero dividir esse novo capítulo com
+          você.
+        </p>
+        <p class="muted-copy">
+          Neste momento, estou procurando modelos para treinamento. No direct, conversamos sobre as
+          condições, a técnica disponível e o tempo necessário para o atendimento.
+        </p>
+        <Action href={site.contactUrl} external>
+          Conversar sobre o atendimento
+        </Action>
+        <p class="plain-note">
+          Técnicas, valores, duração e orientações são confirmados diretamente com a Ellen antes de
+          combinar o horário.
+        </p>
+      </div>
+    </div>
+  </section>
+  <section class="section shell">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">REFERÊNCIAS PARA NOSSA CONVERSA</p>
+        <h2>
+          Cada estilo,
+          <br />
+          <span>uma expressão.</span>
+        </h2>
+      </div>
+      <p>
+        Esses desenhos são inspirações visuais. Eles ajudam a contar qual estilo você gosta; não
+        representam um catálogo de técnicas confirmadas.
+      </p>
+    </div>
+    <div class="style-rows">
+      {styles.map((style) => (
+        <article id={style.id}>
+          <span>{style.number}</span>
+          <div>
+            <h3>{style.name}</h3>
+            <p>{style.description}</p>
+            <p class="plain-note">{style.note}</p>
+          </div>
+          <LashStudy variant={style.curve} />
+        </article>
+      ))}
+    </div>
+  </section>
+  <section class="section blush" data-surface="light">
+    <div class="shell">
+      <p class="eyebrow">UM PASSO DE CADA VEZ</p>
+      <h2>
+        Da primeira mensagem
+        <br />
+        <span>ao horário combinado.</span>
+      </h2>
+      <ol class="steps-list">
+        <li>
+          <span>01</span>
+          <h3>Me chama no direct</h3>
+          <p>Conte que conheceu o site e se tem interesse em atendimento ou em ser modelo.</p>
+        </li>
+        <li>
+          <span>02</span>
+          <h3>Vamos tirar as dúvidas</h3>
+          <p>Converse sobre as condições, o estilo desejado, o tempo e os cuidados envolvidos.</p>
+        </li>
+        <li>
+          <span>03</span>
+          <h3>Combine o seu horário</h3>
+          <p>Confirme a disponibilidade e o endereço diretamente com a Ellen.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
   <ContactSection />
 </Base>
