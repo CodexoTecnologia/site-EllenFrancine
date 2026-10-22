@@ -6,10 +6,10 @@ O usuário forneceu o perfil `https://www.instagram.com/ellenfrancine.lash/` e a
 
 - Nome: Ellen Francine; profissão: Lash Designer; serviço mencionado: extensão de cílios.
 - Localização: Roça Grande, Colombo, Paraná.
-- Agendamento pelo direct do Instagram.
+- Agendamento pelo Instagram e, confirmado em 22/10/2026, WhatsApp +55 41 99917-9039.
 - Início da jornada profissional e convite para modelos para treinamento.
 
-As fotografias em `src/assets/modelo-instagram-*.webp` vieram dos três primeiros itens dessa publicação, baixados pela interface do Instagram. Elas não receberam filtros que alterem o conteúdo nesta implementação; o pipeline apenas gera formatos/tamanhos para a web. A interface do Instagram exibia o marcador “AI content” na publicação. Não tratamos as fotos como comprovação de técnica, imagem original não editada ou evidência de resultado mensurado. As legendas as identificam como material do perfil/publicação de lançamento.
+As fotografias em `src/assets/modelo-instagram-*.webp` vieram dos cinco primeiros itens dessa publicação (itens 4 e 5 adicionados a pedido do usuário em 22/10/2026), baixados pela interface do Instagram. Elas não receberam filtros que alterem o conteúdo nesta implementação; o pipeline apenas gera formatos/tamanhos para a web. A interface do Instagram exibia o marcador “AI content” na publicação. Não tratamos as fotos como comprovação de técnica, imagem original não editada ou evidência de resultado mensurado. As legendas as identificam como material do perfil/publicação de lançamento.
 
 Antes de publicação definitiva, confirmar com Ellen a autorização de uso das modelos e a identificação que deseja dar a cada fotografia. Não presumir que a pessoa fotografada seja a Ellen.
 

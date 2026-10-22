@@ -1,6 +1,6 @@
 const instagram =
   import.meta.env.PUBLIC_INSTAGRAM?.trim() || 'https://www.instagram.com/ellenfrancine.lash/';
-const whatsapp = import.meta.env.PUBLIC_WHATSAPP?.replace(/\D/g, '') || null;
+const whatsapp = import.meta.env.PUBLIC_WHATSAPP?.replace(/\D/g, '') || '5541999179039';
 const domain = import.meta.env.PUBLIC_SITE_URL?.trim() || null;
 const recruitmentActive = import.meta.env.PUBLIC_RECRUITMENT_ACTIVE !== 'false';
 const contactChannel = whatsapp ? 'WhatsApp' : 'Instagram';
@@ -17,6 +17,8 @@ export const site = {
   instagram,
   instagramHandle: '@ellenfrancine.lash',
   whatsapp,
+  telephone: `+${whatsapp}`,
+  phoneLabel: whatsapp.replace(/^(55)(\d{2})(\d{5})(\d{4})$/, '+$1 ($2) $3-$4'),
   contactUrl: whatsapp ? `https://wa.me/${whatsapp}` : instagram,
   contactLabel: `Conversar no ${contactChannel}`,
   contactChannel,
@@ -24,7 +26,8 @@ export const site = {
   primaryCta: recruitmentActive ? 'Quero ser modelo' : 'Conversar com a Ellen',
   domain,
   preview: import.meta.env.PUBLIC_SITE_MODE !== 'production',
-  showPreviewNotice: import.meta.env.PUBLIC_PREVIEW_NOTICE !== 'false',
+  streetAddress: import.meta.env.PUBLIC_STREET_ADDRESS?.trim() || null,
+  postalCode: import.meta.env.PUBLIC_POSTAL_CODE?.replace(/\D/g, '') || null,
   launchPost: 'https://www.instagram.com/p/DewcYglnH-F/',
   launchDate: '2026-10-21',
   recruitmentActive,

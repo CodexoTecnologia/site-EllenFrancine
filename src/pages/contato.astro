@@ -6,7 +6,10 @@ import Icon from '../components/Icon.astro';
 import { site, locationLabel } from '../config/site';
 ---
 
-<Base title="Contato com Ellen Francine em Colombo" description={site.description}>
+<Base
+  title="Contato com Ellen Francine em Colombo"
+  description={`Fale com Ellen Francine no WhatsApp ${site.phoneLabel}. Atendimento em Roça Grande, Colombo, PR. Consulte disponibilidade e combine os detalhes diretamente.`}
+>
   <PageHero
     eyebrow="O PRÓXIMO PASSO É CONVERSAR"
     title="Seu olhar merece"
@@ -28,7 +31,7 @@ import { site, locationLabel } from '../config/site';
           <div class="contact-item">
             <span class="eyebrow">WHATSAPP / ATENDIMENTO</span>
             <a href={site.contactUrl} target="_blank" rel="noopener noreferrer">
-              Conversar no WhatsApp <Icon size={22} />
+              {site.phoneLabel} <Icon size={22} />
             </a>
             <p>Envie sua mensagem e combine os detalhes diretamente com a Ellen.</p>
           </div>
@@ -47,10 +50,18 @@ import { site, locationLabel } from '../config/site';
         <div class="contact-item">
           <span class="eyebrow">LOCALIZAÇÃO</span>
           <h2 style="font-size:var(--s5)">{locationLabel}</h2>
-          <p>
-            O endereço completo é informado diretamente na conversa, antes de confirmar o
-            atendimento.
-          </p>
+          {site.streetAddress && site.postalCode ? (
+            <p>
+              {site.streetAddress} · CEP {site.postalCode}
+              <br />
+              {locationLabel}
+            </p>
+          ) : (
+            <p>
+              O endereço completo é informado diretamente na conversa, antes de confirmar o
+              atendimento.
+            </p>
+          )}
         </div>
         <div class="contact-item">
           <span class="eyebrow">DISPONIBILIDADE</span>

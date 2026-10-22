@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import { gallery } from '../data/content';
+const portraits = [gallery[0], gallery[4]];
+---
+
+<div
+  class="hero-showcase"
+  data-hero-showcase
+  role="region"
+  aria-label="Retratos da publicação de lançamento"
+  aria-roledescription="carrossel"
+>
+  <div class="hero-photo">
+    {portraits.map((photo, index) => (
+      <div
+        class="hero-frame"
+        data-hero-frame
+        hidden={index !== 0}
+        aria-hidden={index !== 0}
+        role="group"
+        aria-roledescription="slide"
+        aria-label={`${index + 1} de ${portraits.length}`}
+      >
+        <Image
+          src={photo.image}
+          alt={photo.alt}
+          widths={[480, 760, 1100]}
+          sizes="(max-width:760px) 88vw,44vw"
+          format="webp"
+          loading={index === 0 ? 'eager' : 'lazy'}
+          fetchpriority={index === 0 ? 'high' : 'low'}
+          style={`object-position:${photo.position}`}
+        />
+      </div>
+    ))}
+  </div>
+  <div class="hero-controls-reserve">
+    <div class="hero-photo-controls" data-hero-controls hidden>
+      <div role="group" aria-label="Escolher retrato">
+        {portraits.map((_, index) => (
+          <button
+            type="button"
+            data-hero-select={index}
+            aria-label={`Ver retrato ${index + 1}`}
+            aria-pressed={index === 0}
+          >
+            0{index + 1}
+          </button>
+        ))}
+        <span class="hero-photo-counter" data-hero-counter aria-live="off">
+          01 / 02
+        </span>
+      </div>
+      <button type="button" class="hero-playback" data-hero-playback>
+        <span data-playback-label>Pausar fotos</span>
+        <span data-playback-icon aria-hidden="true">
+          Ⅱ
+        </span>
+      </button>
+    </div>
+  </div>
+  <p class="sr-only" role="status" data-hero-status></p>
+</div>

@@ -36,13 +36,13 @@ O mesmo `dist/` pode ser publicado como site estático. Não há dependência de
 - `src/assets/`: fotos locais processadas pelo Astro.
 - `public/fonts/`: fontes WOFF2 e licenças.
 
-O Instagram e a localização foram confirmados pelo usuário e pelo post de lançamento. Não foram fornecidos telefone, endereço completo, horários, preços ou nomes de técnicas. O contato funciona pelo Instagram, e as demais informações são combinadas no direct. As três referências de estilo são ilustrações, não ofertas técnicas confirmadas.
+O Instagram e a localização foram confirmados pelo usuário e pelo post de lançamento. O WhatsApp +55 41 99917-9039 foi confirmado em 22/10/2026. Não foram fornecidos endereço completo, horários, preços ou nomes de técnicas. O contato principal é pelo WhatsApp e o Instagram permanece disponível. As três referências de estilo são ilustrações, não ofertas técnicas confirmadas.
 
 A fase real da Ellen é o início da jornada e a procura de modelos para treinamento. O site não inventa experiência, depoimentos, resultados quantitativos ou certificações.
 
 ## Indexação
 
-Por padrão todas as páginas têm `noindex, nofollow` e `robots.txt` bloqueia rastreamento. Para produção, configurar `PUBLIC_SITE_URL=https://dominio-confirmado` e `PUBLIC_SITE_MODE=production`. O build exige a URL final e passa a emitir sitemap. `noindex` não é controle de acesso.
+Por padrão todas as páginas têm `noindex, follow` e `robots.txt` permite a leitura dessa diretiva pelos robôs. Para produção, configurar `PUBLIC_SITE_URL=https://dominio-confirmado` e `PUBLIC_SITE_MODE=production`. O build exige a URL final e passa a emitir sitemap. `noindex` não é controle de acesso.
 
 ## Verificação
 

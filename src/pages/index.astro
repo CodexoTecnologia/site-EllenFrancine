@@ -7,15 +7,18 @@ import LashStudy from '../components/LashStudy.astro';
 import ContactSection from '../components/ContactSection.astro';
 import GalleryViewer from '../components/GalleryViewer.astro';
 import HowItWorks from '../components/HowItWorks.astro';
+import HeroShowcase from '../components/HeroShowcase.astro';
 import { site, locationLabel } from '../config/site';
 import { gallery, styles, faq } from '../data/content';
-const hero = gallery[0];
 const enlarged = await Promise.all(
   gallery.map((item) => getImage({ src: item.image, width: 1200, format: 'webp' })),
 );
 ---
 
-<Base title="Lash Designer em Colombo — seu olhar, sua assinatura">
+<Base
+  title="Extensão de cílios em Colombo"
+  description="Realce seu olhar com Ellen Francine, Lash Designer em Roça Grande, Colombo. Conheça a proposta, veja as fotos e converse sobre seu atendimento."
+>
   <section class="home-hero shell" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">
@@ -25,9 +28,11 @@ const enlarged = await Promise.all(
         LASH DESIGNER EM COLOMBO
       </p>
       <h1 id="hero-title">
-        Seu olhar,
+        <span class="hero-title-line">Seu olhar,</span>
         <br />
-        com <span>assinatura.</span>
+        <span class="hero-title-line">
+          com <em>assinatura.</em>
+        </span>
       </h1>
       <p class="hero-lead">
         Extensão de cílios em Roça Grande, Colombo. Um olhar delicado ou cheio de presença: a
@@ -52,18 +57,7 @@ const enlarged = await Promise.all(
         <path class="hero-contour" d="M30 572C100 660 459 661 574 490" />
         <path data-signature d="M7 566C176 680 390 142 582 174" />
       </svg>
-      <div class="hero-photo">
-        <Image
-          src={hero.image}
-          alt={hero.alt}
-          widths={[480, 760, 1100]}
-          sizes="(max-width: 700px) 88vw, 44vw"
-          format="webp"
-          loading="eager"
-          fetchpriority="high"
-          style={`object-position:${hero.position}`}
-        />
-      </div>
+      <HeroShowcase />
       <div class="hero-photo-note">
         <span aria-hidden="true">✦</span>
         <p>
@@ -73,7 +67,7 @@ const enlarged = await Promise.all(
         </p>
       </div>
       <figcaption>
-        Do Instagram da Ellen <span>01 / ENSAIO DE LANÇAMENTO</span>
+        Do Instagram da Ellen <span>ENSAIO DE LANÇAMENTO</span>
       </figcaption>
     </figure>
   </section>
@@ -129,7 +123,10 @@ const enlarged = await Promise.all(
             <span>contam a história.</span>
           </h2>
         </div>
-        <p>Três enquadramentos da mesma publicação. Toque em uma foto para ver de perto.</p>
+        <p>
+          Cinco imagens da publicação de lançamento. Explore os detalhes e toque em uma foto para
+          ampliar.
+        </p>
       </div>
       <div class="editorial-gallery">
         {gallery.map((item, index) => (
@@ -144,7 +141,7 @@ const enlarged = await Promise.all(
                 src={item.image}
                 alt={item.alt}
                 widths={[400, 700, 1000]}
-                sizes="(max-width: 700px) 88vw, 30vw"
+                sizes={index > 2 ? '(max-width:760px) 46vw,45vw' : '(max-width:760px) 88vw,30vw'}
                 format="webp"
                 loading="lazy"
                 style={`object-position:${item.position}`}

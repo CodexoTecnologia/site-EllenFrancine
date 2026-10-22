@@ -1,6 +1,8 @@
 import photo1 from '../assets/modelo-instagram-01.webp';
 import photo2 from '../assets/modelo-instagram-02.webp';
 import photo3 from '../assets/modelo-instagram-03.webp';
+import photo4 from '../assets/modelo-instagram-04.webp';
+import photo5 from '../assets/modelo-instagram-05.webp';
 import { site } from '../config/site';
 
 export const gallery = [
@@ -23,6 +25,20 @@ export const gallery = [
     alt: 'Detalhe dos cílios e do olho em imagem publicada no perfil profissional da Ellen Francine.',
     title: 'De perto, cada detalhe.',
     detail: 'Um olhar mais próximo para os cílios.',
+    position: '50% 45%',
+  },
+  {
+    image: photo4,
+    alt: 'Close do olho aberto e dos cílios da modelo, na quarta imagem da publicação da Ellen Francine.',
+    title: 'Um olhar de presença.',
+    detail: 'O contorno dos cílios em primeiro plano.',
+    position: '50% 42%',
+  },
+  {
+    image: photo5,
+    alt: 'Modelo sorrindo, com o rosto de lado e os olhos abertos, na quinta imagem da publicação da Ellen Francine.',
+    title: 'Beleza que se expressa.',
+    detail: 'Outro retrato da publicação de lançamento.',
     position: '50% 45%',
   },
 ] as const;

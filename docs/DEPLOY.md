@@ -7,8 +7,9 @@ Preset Astro, Node 24, `npm run build`, saída `dist`. A página e as animaçõe
 Variáveis opcionais documentadas em `.env.example`. A versão inicial contém Instagram e localização reais como padrão. Manter `PUBLIC_SITE_MODE=preview` enquanto Ellen revisa o conteúdo. Conferir mobile, menu, galeria e todos os links externos no endereço publicado.
 
 - `PUBLIC_RECRUITMENT_ACTIVE=false`: encerra a campanha de modelos na home, atendimento, apresentação, contato e FAQ. O padrão é `true`, conforme o convite fornecido.
-- `PUBLIC_WHATSAPP`: número oficial internacional, apenas dígitos. Ao preenchê-lo, ações principais e instruções passam para WhatsApp; o perfil do Instagram permanece disponível separadamente. Não configurar até confirmar o número com Ellen.
-- `PUBLIC_PREVIEW_NOTICE=false`: oculta somente a faixa de revisão. Não libera indexação. `PUBLIC_SITE_MODE` continua controlando robots e sitemap.
+- `PUBLIC_WHATSAPP`: padrão confirmado `5541999179039`. Ações principais levam ao WhatsApp; Instagram permanece como canal separado.
+- A faixa de revisão foi removida do layout a pedido do usuário. Isso não altera a indexação: `PUBLIC_SITE_MODE` continua controlando a diretiva `noindex` e o sitemap.
+- `PUBLIC_STREET_ADDRESS` e `PUBLIC_POSTAL_CODE`: preencher somente com endereço aprovado para publicação. O schema usa `Organization` com área atendida enquanto não há endereço completo, passando a `BeautySalon` quando os dois campos forem fornecidos. O endereço passa a aparecer na página de contato.
 
 Variáveis são lidas no build. Depois de mudá-las na hospedagem, gerar um novo deploy.
 
@@ -27,3 +28,5 @@ Antes de apontar domínio e habilitar indexação:
 - Medir desempenho e encaminhar a propriedade ao Search Console quando houver autorização/acesso.
 
 Nenhuma configuração de DNS, Vercel ou Cloudflare foi executada automaticamente nesta entrega.
+
+Detalhes de indexação, dados estruturados e validação: `docs/SEO.md`.

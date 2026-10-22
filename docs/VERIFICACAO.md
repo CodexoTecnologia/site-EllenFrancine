@@ -1,5 +1,18 @@
 # Verificação da implementação
 
+## Contato, novas fotos, movimento e SEO — 22/10/2026
+
+- Faixa de revisão removida do layout. WhatsApp confirmado pelo usuário: +55 41 99917-9039, configurado como padrão dos contatos e incluído na página de contato e rodapé.
+- Fotos 4 e 5 do carrossel solicitado baixadas, inspecionadas e incluídas nos assets locais. Home e galeria têm cinco itens, com legendas próprias e visualizador compartilhado.
+- Referência de movimento consultada em `site-Codexo`, `origin/main` no commit `5349651`: entradas escalonadas, títulos, linhas de processo, parallax e troca de painéis. A adaptação usa o GSAP existente, sem adicionar React, Motion ou outra dependência.
+- Abertura com dois retratos, transição suave, seleção manual e reprodução a cada sete segundos. Pausa por controle, interação/foco, hover, aba oculta e saída da viewport. Preferência por movimento reduzido continua respeitada; a pessoa pode ativar os efeitos no controle da abertura ou do rodapé.
+- Entradas do título e blocos sem ocultar o conteúdo crítico, linhas desenhadas no processo/contato, progresso de leitura, resposta de cor ao scroll e transição nativa entre documentos com fallback.
+- SEO: JSON-LD, breadcrumbs, títulos/descrições próprios, canônicos condicionais, Open Graph/Twitter, sitemap de produção e 404 sempre `noindex`. O robots da prévia permite a leitura do `noindex`. `Organization` permanece como tipo da marca enquanto não houver endereço completo aprovado; detalhes em `docs/SEO.md`.
+- Seis testes passaram no build de prévia e no build separado de produção com domínio de teste e campanha encerrada. Astro check sem erros, avisos ou hints após excluir os bundles descartáveis de `artifacts/` da análise de tipos.
+- No navegador: nova foto na abertura, reprodução automática observada, pausa e ativação explícita dos efeitos; galeria abriu fotos 4/5 em 320px, com Escape e retorno de foco. Contato apresentou o número correto e o link `wa.me`. Sem overflow nas larguras medidas de 320 e 768px; console da aba não retornou erros/avisos durante esses testes.
+
+Não houve publicação de domínio, conexão ao Search Console, validação externa no Google ou novas medições de Core Web Vitals. O build de teste de produção fica somente em `artifacts/` e não é enviado ao Git.
+
 ## Evolução de 22/10/2026
 
 - Home reorganizada: proposta objetiva, convite para treinamento, ensaio de lançamento, processo de atendimento, estilos, apresentação e dúvidas. Removida uma seção de promessa repetida e o emblema sem informação adicional.
