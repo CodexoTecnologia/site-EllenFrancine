@@ -1,0 +1,37 @@
+---
+import { Image } from 'astro:assets';
+import Base from '../layouts/Base.astro';
+import Action from '../components/Action.astro';
+import Icon from '../components/Icon.astro';
+import LashStudy from '../components/LashStudy.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site, locationLabel } from '../config/site';
+import { gallery, styles, faq } from '../data/content';
+const hero = gallery[0];
+---
+<Base title="Lash Designer em Colombo — seu olhar, sua assinatura">
+  <section class="home-hero shell" aria-labelledby="hero-title">
+    <div class="hero-copy"><p class="eyebrow"><span class="tiny-star" aria-hidden="true">✦</span> LASH DESIGNER EM COLOMBO</p><h1 id="hero-title">Seu olhar,<br />com <span>assinatura.</span></h1><p class="hero-lead">Cílios que realçam o que te faz única. Um novo começo, preparado com carinho para o seu olhar.</p><div class="hero-actions"><Action href={site.contactUrl} external>Quero ser modelo</Action><a class="text-link" href="#galeria">Conhecer esse começo <Icon name="down" size={17} /></a></div><p class="hero-location"><Icon name="location" size={15} />{locationLabel}</p></div>
+    <figure class="hero-visual">
+      <svg class="hero-orbit" viewBox="0 0 600 700" fill="none" aria-hidden="true"><ellipse cx="300" cy="345" rx="263" ry="310" transform="rotate(13 300 345)" /><path data-signature d="M20 537C151 630 410 73 578 171" /><path class="orbit-spark" d="M510 46Q510 68 488 68Q510 68 510 90Q510 68 532 68Q510 68 510 46Z" /></svg>
+      <div class="hero-photo"><Image src={hero.image} alt={hero.alt} widths={[480, 760, 1100]} sizes="(max-width: 700px) 88vw, 44vw" format="webp" loading="eager" fetchpriority="high" style={`object-position:${hero.position}`} /></div>
+      <div class="hero-photo-note"><span aria-hidden="true">✦</span><p>Realce o que<br /><strong>te faz única.</strong></p></div>
+      <figcaption>Do Instagram da Ellen <span>01 / UM NOVO COMEÇO</span></figcaption>
+    </figure>
+  </section>
+
+  <div class="hero-bottom shell"><span>EXTENSÃO DE CÍLIOS</span><span class="hero-bottom-star" aria-hidden="true">✦</span><span>UM OLHAR COM A SUA IDENTIDADE</span><a href={site.instagram} target="_blank" rel="noopener noreferrer">ACOMPANHE ESSE COMEÇO <Icon size={13} /></a></div>
+
+  <section class="intro-section section paper" data-surface="light"><div class="shell intro-grid"><p class="eyebrow">BELEZA QUE RECONHECE VOCÊ</p><div><h2>O seu olhar não precisa<br />ser igual a <span>nenhum outro.</span></h2><p>Mais delicado, mais definido ou cheio de presença. A conversa começa pelo que combina com você.</p><a class="text-link" href="/servicos/">Conheça a proposta do atendimento <Icon size={16} /></a></div><div class="intro-spark" aria-hidden="true"><Icon name="spark" size={110} /></div></div></section>
+
+  <section class="models-section section" id="modelos"><div class="shell models-grid"><div class="models-emblem" aria-hidden="true"><span>UM NOVO CICLO</span><span class="models-initials">EF</span><span>UMA NOVA HISTÓRIA</span><svg viewBox="0 0 400 400" fill="none"><ellipse cx="200" cy="200" rx="182" ry="145" transform="rotate(-22 200 200)" /><path d="M30 286C134 337 284 68 370 120" /></svg></div><div><p class="eyebrow">UM CONVITE PARA VOCÊ</p><h2>Faça parte<br /><span>do meu começo.</span></h2><p class="section-lead">Estou iniciando minha jornada como Lash Designer e procurando modelos para treinamento.</p><p class="muted-copy">Se você ama cílios e quer fazer parte dessa fase comigo, vou adorar conversar. Consulte as condições e a disponibilidade pelo direct.</p><Action href={site.contactUrl} external>Tenho interesse em ser modelo</Action><a class="source-link" href={site.launchPost} target="_blank" rel="noopener noreferrer">Ver o convite no Instagram <Icon size={13} /></a></div></div></section>
+
+  <section class="gallery-section section paper" id="galeria" data-surface="light"><div class="shell"><div class="section-heading"><div><p class="eyebrow">UM OLHAR SOBRE ESSE COMEÇO</p><h2>Os detalhes<br /><span>contam a história.</span></h2></div><p>Imagens da publicação de lançamento. Um convite para acompanhar essa nova fase de perto.</p></div><div class="editorial-gallery">{gallery.map((item,index)=><figure class:list={['editorial-photo',`editorial-photo--${index+1}`]} data-photo><a href="/resultados/" aria-label={`Ver galeria: ${item.title}`}><Image src={item.image} alt={item.alt} widths={[400, 700, 1000]} sizes="(max-width: 700px) 88vw, 30vw" format="webp" loading="lazy" style={`object-position:${item.position}`} /><span class="photo-arrow"><Icon size={20} /></span></a><figcaption><span>0{index+1}</span><div><h3>{item.title}</h3><p>{item.detail}</p></div></figcaption></figure>)}</div><div class="gallery-bottom"><a class="text-link" href="/resultados/">Explorar a galeria <Icon size={17} /></a><span>Imagens de {site.instagramHandle}</span></div></div></section>
+
+  <section class="styles-section section" id="estilos"><div class="shell"><div class="section-heading"><div><p class="eyebrow">SEU ESTILO É O PONTO DE PARTIDA</p><h2>Que olhar<br /><span>combina com você?</span></h2></div><p>Três referências de estilo para inspirar a conversa. A técnica será definida diretamente com a Ellen.</p></div><div class="style-explorer" data-style-explorer><div class="style-visual"><span class="style-visual-label">ESTUDO DE ESTILO / ILUSTRAÇÃO</span>{styles.map((style,index)=><div class="style-art" data-style-art={style.id} hidden={index !== 0}><LashStudy variant={style.curve} /><span>{style.name}</span></div>)}<span class="style-visual-caption">Uma inspiração. O seu olhar é único.</span></div><div class="style-options">{styles.map((style,index)=><div class="style-option"><button type="button" data-style-select={style.id} aria-pressed={index===0}><span>{style.number}</span><span>{style.name}</span><Icon size={18} /></button><p>{style.description}</p></div>)}<a class="text-link" href="/servicos/">Entenda o atendimento <Icon size={15} /></a></div></div></div></section>
+
+  <section class="about-teaser section blush" data-surface="light"><div class="shell about-grid"><div><p class="eyebrow">POR TRÁS DESSA ASSINATURA</p><h2>Prazer, Ellen.<br /><span>Esse sonho é meu.<br />O olhar é seu.</span></h2></div><div class="about-copy"><p>“Um novo ciclo, um novo sonho e uma paixão que está começando a ganhar vida.”</p><span class="quote-source">Ellen Francine · na publicação de lançamento</span><p class="muted-copy">Cada detalhe está sendo preparado com carinho, dedicação e vontade de entregar o meu melhor. Vem fazer parte do começo da minha história.</p><a class="text-link" href="/sobre/">Conheça esse novo capítulo <Icon size={17} /></a></div></div></section>
+
+  <section class="faq-section section shell"><div class="faq-grid"><div><p class="eyebrow">ANTES DA NOSSA CONVERSA</p><h2>Algumas dúvidas.<br /><span>Um pouco de clareza.</span></h2><p class="muted-copy">O próximo passo é conversar. Separei algumas informações para você chegar mais à vontade.</p></div><div class="faq-list">{faq.map(item=><details name="home-faq"><summary>{item.question}<span aria-hidden="true">+</span></summary><p>{item.answer}</p></details>)}</div></div></section>
+  <ContactSection />
+</Base>

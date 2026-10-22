@@ -1,0 +1,11 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Action from '../components/Action.astro';
+import Icon from '../components/Icon.astro';
+import { site, locationLabel } from '../config/site';
+---
+<Base title="Contato e modelos para treinamento em Roça Grande, Colombo" description="Fale com Ellen Francine pelo Instagram @ellenfrancine.lash. Atendimento em Roça Grande, Colombo, PR. Consulte condições para modelos e disponibilidade.">
+  <PageHero eyebrow="O PRÓXIMO PASSO É CONVERSAR" title="Seu olhar merece" accent="esse carinho." description="Tem vontade de conhecer o atendimento ou de ser modelo de treinamento? Vai ser um prazer conversar com você."><Action href={site.contactUrl} external>{site.contactLabel}</Action></PageHero>
+  <section class="section shell"><div class="contact-page-grid"><div><div class="contact-item"><span class="eyebrow">INSTAGRAM / AGENDAMENTO PELO DIRECT</span><a href={site.instagram} target="_blank" rel="noopener noreferrer">{site.instagramHandle}<Icon size={22} /></a><p>Abra o perfil e envie uma mensagem pelo direct. A Ellen confirma as informações e combina o horário com você.</p></div><div class="contact-item"><span class="eyebrow">LOCALIZAÇÃO</span><h2 style="font-size:var(--s5)">{locationLabel}</h2><p>O endereço completo é informado diretamente na conversa, antes de confirmar o atendimento.</p></div><div class="contact-item"><span class="eyebrow">DISPONIBILIDADE</span><p>Consulte os dias, horários, condições para modelos e informações de atendimento pelo canal oficial.</p></div></div><aside class="contact-card"><p class="eyebrow">VEM FAZER PARTE DESSE COMEÇO</p><h2>Quero ser<br /><span>modelo.</span></h2><p>Estou procurando modelos para treinamento nesta nova fase como Lash Designer. Me chama para conhecer a proposta.</p><Action href={site.contactUrl} external>Falar com a Ellen</Action><small>O link abre o canal oficial. O horário será confirmado na conversa; não existe reserva automática por este site.</small></aside></div></section>
+</Base>

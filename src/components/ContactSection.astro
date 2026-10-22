@@ -1,0 +1,8 @@
+---
+import Action from './Action.astro';
+import Icon from './Icon.astro';
+import { site, locationLabel } from '../config/site';
+---
+<section class="contact-section section" id="conversar">
+  <div class="shell contact-inner"><div class="contact-ornament" aria-hidden="true"><Icon name="spark" size={66} /></div><p class="eyebrow">VEM FAZER PARTE DESSE COMEÇO</p><h2>Seu próximo olhar<br /><span>começa com uma conversa.</span></h2><p>Para conhecer o atendimento, tirar dúvidas ou participar como modelo de treinamento, fale comigo pelo direct.</p><Action href={site.contactUrl} external>{site.contactLabel}</Action><span class="contact-location"><Icon name="location" size={15} />{locationLabel}</span></div>
+</section>

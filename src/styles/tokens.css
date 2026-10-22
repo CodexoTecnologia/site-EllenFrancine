@@ -1,0 +1,16 @@
+@font-face{font-family:Lora;src:url('/fonts/lora-600-latin.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+@font-face{font-family:Manrope;src:url('/fonts/manrope-400-latin.woff2') format('woff2');font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:Manrope;src:url('/fonts/manrope-600-latin.woff2') format('woff2');font-weight:600;font-style:normal;font-display:swap}
+:root{
+  --ink:#100d0f;--surface:#1d171b;--surface-raised:#282026;
+  --paper:#fcf8f5;--blush:#f2e2e5;--rose:#e5a1b1;--wine:#9b3e59;--wine-hover:#803048;
+  --text:var(--paper);--muted:#bbaeb3;--line:#3d2e35;--control-line:#79616a;
+  --accent:var(--rose);--action-bg:var(--rose);--action-text:var(--ink);--action-hover:#efb6c3;--focus:var(--rose);
+  --light-muted:#705a63;--light-line:#dfcdd3;--light-control-line:#977782;
+  --display:Lora,Georgia,serif;--body:Manrope,Arial,sans-serif;
+  --s1:4px;--s2:8px;--s3:16px;--s4:24px;--s5:32px;--s6:48px;--s7:64px;--s8:96px;--s9:128px;
+  --radius:8px;--radius-panel:16px;--shell:1240px;
+  --fast:160ms;--base:260ms;--ease:cubic-bezier(.2,.8,.2,1);
+  color-scheme:dark;
+}
+[data-surface=light]{--text:var(--ink);--muted:var(--light-muted);--line:var(--light-line);--control-line:var(--light-control-line);--accent:var(--wine);--action-bg:var(--wine);--action-text:var(--paper);--action-hover:var(--wine-hover);--focus:var(--wine);color-scheme:light}

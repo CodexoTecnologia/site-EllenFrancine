@@ -1,0 +1,13 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import Action from '../components/Action.astro';
+import ContactSection from '../components/ContactSection.astro';
+import { site, locationLabel } from '../config/site';
+---
+<Base title="Conheça a Ellen — um novo capítulo como Lash Designer" description="Ellen Francine está começando sua jornada como Lash Designer em Roça Grande, Colombo. Conheça sua proposta e participe desse novo começo.">
+  <PageHero eyebrow="PRAZER, ELLEN FRANCINE" title="Um novo ciclo." accent="Um sonho ganhando vida." description="Estou iniciando minha jornada como Lash Designer e quero dividir esse começo com você." />
+  <section class="section paper" data-surface="light"><div class="shell story-grid"><figure class="brand-portrait"><img src="/brand/ellen-francine-original.jpg" alt="Logo original da Ellen Francine: monograma EF e assinatura rosé sobre preto." width="1254" height="1254" loading="lazy" /></figure><div class="story-copy"><p class="eyebrow">CADA HISTÓRIA COMEÇA COM UM PASSO</p><blockquote>“Cada detalhe está sendo preparado com muito carinho, dedicação e vontade de entregar o meu melhor.”</blockquote><p>Foi assim que apresentei esse novo capítulo no meu Instagram. Um começo que tem muito de mim e que quero construir também com quem chegar para fazer parte dele.</p><p>Estou procurando modelos para treinamento. Se você ama cílios e quer conhecer essa fase de perto, me chama para conversar.</p><span class="signature-name">Ellen Francine</span><p class="muted-copy">Lash Designer · {locationLabel}</p><Action href={site.contactUrl} external>Vamos conversar</Action></div></div></section>
+  <section class="section shell"><div class="section-heading"><div><p class="eyebrow">REALCE O QUE TE FAZ ÚNICA</p><h2>A assinatura é minha.<br /><span>A identidade é sua.</span></h2></div><p>O site nasce como um espaço para apresentar a marca, compartilhar os próximos passos e facilitar a nossa primeira conversa.</p></div><p class="source-note">Apresentação baseada nas informações e na publicação de lançamento do perfil profissional da Ellen. Acompanhe as novidades diretamente no Instagram.</p></section>
+  <ContactSection />
+</Base>

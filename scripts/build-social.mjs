@@ -1,0 +1,6 @@
+import sharp from 'sharp';
+import { fileURLToPath } from 'node:url';
+import { readFile } from 'node:fs/promises';
+const logo=(await readFile(new URL('../public/brand/ellen-francine-original.jpg',import.meta.url))).toString('base64');
+const svg=`<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg"><rect width="1200" height="630" fill="#100d0f"/><text x="72" y="125" fill="#e5a1b1" font-family="Arial" font-size="17" letter-spacing="3">LASH DESIGNER EM COLOMBO</text><text x="68" y="240" fill="#fcf8f5" font-family="Georgia" font-size="65" font-weight="bold">Seu olhar,</text><text x="68" y="325" fill="#e5a1b1" font-family="Georgia" font-size="65" font-weight="bold">com assinatura.</text><text x="72" y="440" fill="#bbaeb3" font-family="Arial" font-size="24">Ellen Francine</text><text x="72" y="482" fill="#bbaeb3" font-family="Arial" font-size="18">Roça Grande · Colombo, PR</text><image x="760" y="100" width="370" height="370" href="data:image/jpeg;base64,${logo}"/><path d="M745 485C855 575 1070 70 1160 190" stroke="#e5a1b1" stroke-width="2" fill="none"/></svg>`;
+await sharp(Buffer.from(svg)).jpeg({quality:85}).toFile(fileURLToPath(new URL('../public/og-image.jpg',import.meta.url)));
