@@ -5,13 +5,18 @@ import PageHero from '../components/PageHero.astro';
 import Action from '../components/Action.astro';
 import LashStudy from '../components/LashStudy.astro';
 import ContactSection from '../components/ContactSection.astro';
+import HowItWorks from '../components/HowItWorks.astro';
 import { site } from '../config/site';
 import { gallery, styles } from '../data/content';
 ---
 
 <Base
-  title="Extensão de cílios e modelos para treinamento em Colombo"
-  description="Conheça a proposta de atendimento da Ellen Francine em Roça Grande, Colombo. Converse pelo Instagram sobre extensão de cílios e modelos para treinamento."
+  title={
+    site.recruitmentActive
+      ? 'Extensão de cílios e modelos para treinamento em Colombo'
+      : 'Extensão de cílios em Colombo'
+  }
+  description={site.description}
 >
   <PageHero
     eyebrow="O ATENDIMENTO"
@@ -44,8 +49,11 @@ import { gallery, styles } from '../data/content';
           você.
         </p>
         <p class="muted-copy">
-          Neste momento, estou procurando modelos para treinamento. No direct, conversamos sobre as
-          condições, a técnica disponível e o tempo necessário para o atendimento.
+          {site.recruitmentActive
+            ? 'Neste momento, estou procurando modelos para treinamento.'
+            : 'Conheça as possibilidades do atendimento.'}{' '}
+          Conversamos {site.contactInstruction} sobre as condições, a técnica disponível e o tempo
+          necessário.
         </p>
         <Action href={site.contactUrl} external>
           Conversar sobre o atendimento
@@ -86,32 +94,6 @@ import { gallery, styles } from '../data/content';
       ))}
     </div>
   </section>
-  <section class="section blush" data-surface="light">
-    <div class="shell">
-      <p class="eyebrow">UM PASSO DE CADA VEZ</p>
-      <h2>
-        Da primeira mensagem
-        <br />
-        <span>ao horário combinado.</span>
-      </h2>
-      <ol class="steps-list">
-        <li>
-          <span>01</span>
-          <h3>Me chama no direct</h3>
-          <p>Conte que conheceu o site e se tem interesse em atendimento ou em ser modelo.</p>
-        </li>
-        <li>
-          <span>02</span>
-          <h3>Vamos tirar as dúvidas</h3>
-          <p>Converse sobre as condições, o estilo desejado, o tempo e os cuidados envolvidos.</p>
-        </li>
-        <li>
-          <span>03</span>
-          <h3>Combine o seu horário</h3>
-          <p>Confirme a disponibilidade e o endereço diretamente com a Ellen.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
+  <HowItWorks />
   <ContactSection />
 </Base>

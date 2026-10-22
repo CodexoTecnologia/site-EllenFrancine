@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 
-const root = resolve('dist');
+const root = resolve(process.env.TEST_SITE_DIST || 'dist');
 const routes = ['/', '/servicos/', '/resultados/', '/sobre/', '/contato/', '/privacidade/'];
 const htmlFor = (route) => readFileSync(resolve(root, '.' + route, 'index.html'), 'utf8');
 
@@ -63,4 +63,36 @@ test('prévia protege indexação e mantém contato verdadeiro, sem reserva fict
   ]) {
     assert.ok(existsSync(resolve(root, 'fonts', font)), `Fonte local disponível: ${font}`);
   }
+});
+
+test('campanha e canal de contato seguem a configuração em todas as páginas', () => {
+  const active = process.env.PUBLIC_RECRUITMENT_ACTIVE !== 'false';
+  const whatsapp = process.env.PUBLIC_WHATSAPP?.replace(/\D/g, '');
+  const channel = whatsapp ? 'WhatsApp' : 'Instagram';
+  const home = htmlFor('/');
+  assert.equal(home.includes('id="modelos"'), active, 'Convite da home acompanha a campanha');
+  for (const route of ['/', '/servicos/', '/sobre/', '/contato/']) {
+    const html = htmlFor(route);
+    if (!active) {
+      assert.ok(!html.includes('Quero ser modelo'), `${route}: sem CTA de campanha encerrada`);
+      assert.ok(!html.includes('Estou procurando modelos'), `${route}: sem convite antigo`);
+      assert.ok(
+        !html.includes('procurando modelos para treinamento'),
+        `${route}: sem convite antigo`,
+      );
+    }
+    const contactLinks = [...html.matchAll(/<a\b[^>]+href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/g)];
+    const primaryLinks = contactLinks.filter((link) => link[2].includes(`Conversar no ${channel}`));
+    assert.ok(primaryLinks.length, `${route}: canal visível`);
+    for (const link of primaryLinks) {
+      assert.equal(
+        link[1],
+        whatsapp ? `https://wa.me/${whatsapp}` : 'https://www.instagram.com/ellenfrancine.lash/',
+      );
+    }
+  }
+  assert.equal(
+    home.includes('class="preview-note"'),
+    process.env.PUBLIC_SITE_MODE !== 'production' && process.env.PUBLIC_PREVIEW_NOTICE !== 'false',
+  );
 });

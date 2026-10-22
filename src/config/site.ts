@@ -2,13 +2,15 @@ const instagram =
   import.meta.env.PUBLIC_INSTAGRAM?.trim() || 'https://www.instagram.com/ellenfrancine.lash/';
 const whatsapp = import.meta.env.PUBLIC_WHATSAPP?.replace(/\D/g, '') || null;
 const domain = import.meta.env.PUBLIC_SITE_URL?.trim() || null;
+const recruitmentActive = import.meta.env.PUBLIC_RECRUITMENT_ACTIVE !== 'false';
+const contactChannel = whatsapp ? 'WhatsApp' : 'Instagram';
+const contactInstruction = whatsapp ? 'pelo WhatsApp' : 'pelo direct do Instagram';
 
 export const site = {
   name: 'Ellen Francine',
   role: 'Lash Designer',
   tagline: 'Realce o que te faz única.',
-  description:
-    'Extensão de cílios com Ellen Francine em Roça Grande, Colombo. Conheça esse novo começo e converse pelo Instagram sobre atendimento e modelos para treinamento.',
+  description: `Extensão de cílios com Ellen Francine em Roça Grande, Colombo. Converse ${contactInstruction} sobre atendimento${recruitmentActive ? ' e modelos para treinamento' : ''}.`,
   city: import.meta.env.PUBLIC_CITY?.trim() || 'Colombo',
   neighborhood: import.meta.env.PUBLIC_NEIGHBORHOOD?.trim() || 'Roça Grande',
   state: 'PR',
@@ -16,12 +18,16 @@ export const site = {
   instagramHandle: '@ellenfrancine.lash',
   whatsapp,
   contactUrl: whatsapp ? `https://wa.me/${whatsapp}` : instagram,
-  contactLabel: whatsapp ? 'Conversar no WhatsApp' : 'Conversar no Instagram',
+  contactLabel: `Conversar no ${contactChannel}`,
+  contactChannel,
+  contactInstruction,
+  primaryCta: recruitmentActive ? 'Quero ser modelo' : 'Conversar com a Ellen',
   domain,
   preview: import.meta.env.PUBLIC_SITE_MODE !== 'production',
+  showPreviewNotice: import.meta.env.PUBLIC_PREVIEW_NOTICE !== 'false',
   launchPost: 'https://www.instagram.com/p/DewcYglnH-F/',
   launchDate: '2026-10-21',
-  recruitmentActive: true,
+  recruitmentActive,
 } as const;
 
 export const navigation = [

@@ -6,6 +6,12 @@ Preset Astro, Node 24, `npm run build`, saída `dist`. A página e as animaçõe
 
 Variáveis opcionais documentadas em `.env.example`. A versão inicial contém Instagram e localização reais como padrão. Manter `PUBLIC_SITE_MODE=preview` enquanto Ellen revisa o conteúdo. Conferir mobile, menu, galeria e todos os links externos no endereço publicado.
 
+- `PUBLIC_RECRUITMENT_ACTIVE=false`: encerra a campanha de modelos na home, atendimento, apresentação, contato e FAQ. O padrão é `true`, conforme o convite fornecido.
+- `PUBLIC_WHATSAPP`: número oficial internacional, apenas dígitos. Ao preenchê-lo, ações principais e instruções passam para WhatsApp; o perfil do Instagram permanece disponível separadamente. Não configurar até confirmar o número com Ellen.
+- `PUBLIC_PREVIEW_NOTICE=false`: oculta somente a faixa de revisão. Não libera indexação. `PUBLIC_SITE_MODE` continua controlando robots e sitemap.
+
+Variáveis são lidas no build. Depois de mudá-las na hospedagem, gerar um novo deploy.
+
 ## Etapa seguinte: Cloudflare da Codexo
 
 Escolher o projeto/conta e a estratégia de publicação existente na Codexo. O build é o mesmo; assets gerados ficam em `dist`. Se o destino for Workers com static assets, configurar o diretório `dist` no projeto Workers e usar o pipeline da conta. Se for Pages, usar `npm run build` e `dist` no projeto Pages. Não há integração amarrada a um provedor nesta implementação.

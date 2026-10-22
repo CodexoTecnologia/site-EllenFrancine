@@ -38,8 +38,9 @@ import { site, locationLabel } from '../config/site';
           mim e que quero construir também com quem chegar para fazer parte dele.
         </p>
         <p>
-          Estou procurando modelos para treinamento. Se você ama cílios e quer conhecer essa fase de
-          perto, me chama para conversar.
+          {site.recruitmentActive
+            ? 'Estou procurando modelos para treinamento. Se você ama cílios e quer conhecer essa fase de perto, vamos conversar.'
+            : 'Se você ama cílios e quer conhecer essa fase de perto, vamos conversar sobre o atendimento.'}
         </p>
         <span class="signature-name">Ellen Francine</span>
         <p class="muted-copy">Lash Designer · {locationLabel}</p>

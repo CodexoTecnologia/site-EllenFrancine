@@ -6,18 +6,25 @@ import { site, locationLabel } from '../config/site';
 
 <section class="contact-section section" id="conversar">
   <div class="shell contact-inner">
-    <div class="contact-ornament" aria-hidden="true">
-      <Icon name="spark" size={66} />
-    </div>
-    <p class="eyebrow">VEM FAZER PARTE DESSE COMEÇO</p>
+    <svg class="contact-signature" viewBox="0 0 300 80" fill="none" aria-hidden="true">
+      <path
+        d="M8 52C89 110 192-17 292 27"
+        stroke="currentColor"
+        stroke-width="1.8"
+        stroke-linecap="round"
+      />
+    </svg>
+    <p class="eyebrow">SEU OLHAR MERECE ESSE CARINHO</p>
     <h2>
       Seu próximo olhar
       <br />
       <span>começa com uma conversa.</span>
     </h2>
     <p>
-      Para conhecer o atendimento, tirar dúvidas ou participar como modelo de treinamento, fale
-      comigo pelo direct.
+      {site.recruitmentActive
+        ? 'Quer conhecer o atendimento ou participar como modelo de treinamento?'
+        : 'Quer conhecer as possibilidades do atendimento?'}{' '}
+      Fale comigo {site.contactInstruction}.
     </p>
     <Action href={site.contactUrl} external>
       {site.contactLabel}

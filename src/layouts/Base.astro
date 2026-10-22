@@ -51,7 +51,7 @@ const socialImage = new URL('/og-image.jpg', socialOrigin).href;
     <a class="skip-link" href="#conteudo">
       Pular para o conteúdo
     </a>
-    {site.preview && (
+    {site.preview && site.showPreviewNotice && (
       <div class="preview-note">
         Uma primeira versão, feita para a Ellen conhecer e sentir a ideia.
       </div>

@@ -1,11 +1,15 @@
 ---
-import { Image } from 'astro:assets';
+import { Image, getImage } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Icon from '../components/Icon.astro';
 import ContactSection from '../components/ContactSection.astro';
+import GalleryViewer from '../components/GalleryViewer.astro';
 import { gallery } from '../data/content';
 import { site } from '../config/site';
+const enlarged = await Promise.all(
+  gallery.map((item) => getImage({ src: item.image, width: 1200, format: 'webp' })),
+);
 ---
 
 <Base
@@ -23,7 +27,13 @@ import { site } from '../config/site';
       <div class="full-gallery">
         {gallery.map((item, index) => (
           <figure data-photo>
-            <div class="gallery-image-wrap">
+            <a
+              class="gallery-image-wrap"
+              href={enlarged[index].src}
+              data-gallery-photo
+              data-photo-title={item.title}
+              aria-label={`Ampliar fotografia: ${item.title}`}
+            >
               <Image
                 src={item.image}
                 alt={item.alt}
@@ -33,7 +43,10 @@ import { site } from '../config/site';
                 loading={index === 0 ? 'eager' : 'lazy'}
                 style={`object-position:${item.position}`}
               />
-            </div>
+              <span class="photo-arrow">
+                <Icon size={20} />
+              </span>
+            </a>
             <figcaption>
               <div>
                 <p class="eyebrow">0{index + 1} / PUBLICAÇÃO DE LANÇAMENTO</p>
@@ -48,11 +61,12 @@ import { site } from '../config/site';
         ))}
       </div>
       <p class="source-note">
-        Imagens da publicação de 21 de outubro de 2026 no perfil {site.instagramHandle}, fornecidas
-        para a apresentação deste site. Nomes de técnicas e detalhes de atendimento são confirmados
-        diretamente com a Ellen.
+        Três enquadramentos da publicação de lançamento de {site.instagramHandle}. A galeria
+        apresenta esse ensaio; técnicas e detalhes de atendimento são confirmados diretamente com a
+        Ellen.
       </p>
     </div>
   </section>
   <ContactSection />
+  <GalleryViewer />
 </Base>

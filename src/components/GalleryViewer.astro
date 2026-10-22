@@ -1,0 +1,49 @@
+---
+import Icon from './Icon.astro';
+import { site } from '../config/site';
+---
+
+<dialog
+  class="photo-viewer"
+  data-photo-viewer
+  aria-labelledby="viewer-title"
+  aria-describedby="viewer-note"
+>
+  <div class="viewer-toolbar">
+    <span class="eyebrow">
+      ENSAIO DE LANÇAMENTO <span data-viewer-count></span>
+    </span>
+    <button
+      type="button"
+      class="viewer-close"
+      data-viewer-close
+      aria-label="Fechar fotografia"
+      autofocus
+    >
+      Fechar <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <figure>
+    <div class="viewer-image">
+      <img data-viewer-image alt="" width="1200" height="1200" />
+    </div>
+    <figcaption>
+      <div>
+        <h2 id="viewer-title" data-viewer-title></h2>
+        <p id="viewer-note">Imagens da publicação de lançamento de {site.instagramHandle}.</p>
+      </div>
+      <a href={site.launchPost} target="_blank" rel="noopener noreferrer">
+        Ver publicação <Icon size={15} />
+      </a>
+    </figcaption>
+  </figure>
+  <div class="viewer-navigation">
+    <button type="button" data-viewer-prev aria-label="Fotografia anterior">
+      ← Anterior
+    </button>
+    <p class="viewer-announcement" aria-live="polite" data-viewer-status></p>
+    <button type="button" data-viewer-next aria-label="Próxima fotografia">
+      Próxima →
+    </button>
+  </div>
+</dialog>

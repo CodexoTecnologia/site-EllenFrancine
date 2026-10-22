@@ -1,5 +1,26 @@
 # Verificação da implementação
 
+## Evolução de 22/10/2026
+
+- Home reorganizada: proposta objetiva, convite para treinamento, ensaio de lançamento, processo de atendimento, estilos, apresentação e dúvidas. Removida uma seção de promessa repetida e o emblema sem informação adicional.
+- Galeria com ampliação em dialog nativo na home e em `/resultados/`, navegação anterior/próxima e por setas, Escape e retorno de foco. Os links continuam abrindo imagens reais sem JavaScript.
+- Explorador atualiza mensagem copiável conforme o estilo. Feedback informa cópia ou seleção manual quando a API não está disponível. Nada é enviado automaticamente para a Ellen.
+- Contato fixo no mobile somente após a ação inicial sair da área útil; oculto no menu, visualizador e seção final de contato. Conteúdo possui espaço para a barra e alvos de foco têm margem de rolagem.
+- Campanha e canal principal centralizados; aviso visual de revisão separado da indexação. Testes verificam também campanha encerrada, WhatsApp configurado e aviso oculto em um build separado e descartável em `artifacts/qa-closed`. O número usado nessa variante é apenas um dado de teste e não faz parte da prévia entregue.
+- Ilustrações com diferenças mais claras e curva da marca simplificada. Mantidos Astro, GSAP e fontes locais, sem novas dependências.
+
+Verificações desta evolução:
+
+- Astro check: zero erros, avisos ou hints. Build final e quatro testes passaram. A variante com campanha encerrada, WhatsApp de teste e aviso oculto também passou nos quatro testes; ela não substituiu o `dist` entregue.
+- Prettier e `git diff --check` passaram.
+- Revisão no navegador em 320, 390, 768 e 1440px. Sem overflow horizontal nas larguras medidas. A legenda do explorador ganhou espaço próprio após detectar proximidade com o nome do estilo.
+- Seleção de estilo atualizou `aria-pressed`, ilustração e mensagem; botão de cópia apresentou confirmação real da API. O fallback de seleção manual está implementado, mas não foi forçada uma negativa de permissão nesta sessão.
+- Dialog na home: abertura, próxima foto, seta direita, Escape e retorno de foco à fotografia original verificados. Em 320px, imagem, legenda e controles couberam no visualizador.
+- Contato fixo apareceu após a abertura e desapareceu no menu e no fim da página. Escape fechou o menu e retornou o foco. Modos de movimento reduzido e completo foram exercitados.
+- Nenhum erro ou aviso foi retornado pelo console da aba de revisão nesta sessão. Não foram medidos novos scores Lighthouse, Core Web Vitals em campo ou aparelhos físicos.
+
+O registro abaixo descreve a versão inicial.
+
 21/10/2026 - versão inicial para a Ellen avaliar.
 
 ## Implementado

@@ -1,6 +1,7 @@
 import photo1 from '../assets/modelo-instagram-01.webp';
 import photo2 from '../assets/modelo-instagram-02.webp';
 import photo3 from '../assets/modelo-instagram-03.webp';
+import { site } from '../config/site';
 
 export const gallery = [
   {
@@ -56,18 +57,19 @@ export const styles = [
 export const faq = [
   {
     question: 'Onde a Ellen atende?',
-    answer:
-      'Em Roça Grande, Colombo, Paraná. Fale pelo direct para confirmar o endereço e combinar o seu atendimento.',
+    answer: `Em ${site.neighborhood}, ${site.city}, ${site.state}. Fale ${site.contactInstruction} para confirmar o endereço e combinar o seu atendimento.`,
   },
   {
-    question: 'Como faço para ser modelo de treinamento?',
-    answer:
-      'A Ellen está iniciando sua jornada como Lash Designer e divulgou um convite para modelos. Chame no direct para conhecer as condições e a disponibilidade atual.',
+    question: site.recruitmentActive
+      ? 'Como faço para ser modelo de treinamento?'
+      : 'Há vagas para modelos?',
+    answer: site.recruitmentActive
+      ? `A Ellen divulgou um convite para modelos de treinamento. Fale ${site.contactInstruction} para confirmar a disponibilidade, as condições, o tempo e o investimento antes de combinar o horário.`
+      : `Não há uma campanha de modelos aberta neste site. Fale ${site.contactInstruction} para conhecer as possibilidades de atendimento.`,
   },
   {
     question: 'Como agendar um horário?',
-    answer:
-      'O primeiro contato é pelo direct do Instagram @ellenfrancine.lash. Combine o atendimento e aguarde a confirmação do horário com a Ellen.',
+    answer: `O primeiro contato é ${site.contactInstruction}. Combine o atendimento e aguarde a confirmação do horário com a Ellen. O site não faz reservas automáticas.`,
   },
   {
     question: 'Quais são as técnicas, os valores e a duração?',

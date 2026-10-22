@@ -6,15 +6,16 @@ import Icon from '../components/Icon.astro';
 import { site, locationLabel } from '../config/site';
 ---
 
-<Base
-  title="Contato e modelos para treinamento em Roça Grande, Colombo"
-  description="Fale com Ellen Francine pelo Instagram @ellenfrancine.lash. Atendimento em Roça Grande, Colombo, PR. Consulte condições para modelos e disponibilidade."
->
+<Base title="Contato com Ellen Francine em Colombo" description={site.description}>
   <PageHero
     eyebrow="O PRÓXIMO PASSO É CONVERSAR"
     title="Seu olhar merece"
     accent="esse carinho."
-    description="Tem vontade de conhecer o atendimento ou de ser modelo de treinamento? Vai ser um prazer conversar com você."
+    description={
+      site.recruitmentActive
+        ? 'Tem vontade de conhecer o atendimento ou de ser modelo de treinamento? Vai ser um prazer conversar com você.'
+        : 'Tem vontade de conhecer o atendimento? Vai ser um prazer conversar com você.'
+    }
   >
     <Action href={site.contactUrl} external>
       {site.contactLabel}
@@ -23,6 +24,15 @@ import { site, locationLabel } from '../config/site';
   <section class="section shell">
     <div class="contact-page-grid">
       <div>
+        {site.whatsapp && (
+          <div class="contact-item">
+            <span class="eyebrow">WHATSAPP / ATENDIMENTO</span>
+            <a href={site.contactUrl} target="_blank" rel="noopener noreferrer">
+              Conversar no WhatsApp <Icon size={22} />
+            </a>
+            <p>Envie sua mensagem e combine os detalhes diretamente com a Ellen.</p>
+          </div>
+        )}
         <div class="contact-item">
           <span class="eyebrow">INSTAGRAM / AGENDAMENTO PELO DIRECT</span>
           <a href={site.instagram} target="_blank" rel="noopener noreferrer">
@@ -45,21 +55,23 @@ import { site, locationLabel } from '../config/site';
         <div class="contact-item">
           <span class="eyebrow">DISPONIBILIDADE</span>
           <p>
-            Consulte os dias, horários, condições para modelos e informações de atendimento pelo
-            canal oficial.
+            Consulte os dias, horários{site.recruitmentActive ? ', condições para modelos' : ''} e
+            informações de atendimento pelo canal oficial.
           </p>
         </div>
       </div>
       <aside class="contact-card">
-        <p class="eyebrow">VEM FAZER PARTE DESSE COMEÇO</p>
+        <p class="eyebrow">VAMOS CONVERSAR</p>
         <h2>
-          Quero ser
+          {site.recruitmentActive ? 'Quero ser' : 'Quero conhecer'}
           <br />
-          <span>modelo.</span>
+          <span>{site.recruitmentActive ? 'modelo.' : 'o atendimento.'}</span>
         </h2>
         <p>
-          Estou procurando modelos para treinamento nesta nova fase como Lash Designer. Me chama
-          para conhecer a proposta.
+          {site.recruitmentActive
+            ? 'Estou procurando modelos para treinamento nesta nova fase como Lash Designer.'
+            : 'Seu estilo é o ponto de partida para nossa conversa.'}{' '}
+          Me chama {site.contactInstruction} para conhecer a proposta.
         </p>
         <Action href={site.contactUrl} external>
           Falar com a Ellen
