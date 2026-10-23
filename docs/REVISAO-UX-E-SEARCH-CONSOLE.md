@@ -2,6 +2,8 @@
 
 23/10/2026. Avaliação do conteúdo e da implementação local; não representa uma medição de conversão, ranking ou desempenho em campo.
 
+**Ajuste posterior de tom:** a pedido do usuário, a home voltou a ter textos mais pessoais e o FAQ passou de quatro para onze perguntas, incluindo dúvidas gerais de primeira aplicação. A contagem de palavras abaixo registra a primeira edição enxuta, não a versão atual. As referências das respostas gerais estão em [Origem dos materiais](FONTES-E-CONTEUDO.md#faq-geral--23102026).
+
 ## Alterações entregues
 
 A home repetia a apresentação, o convite e a orientação para contato. Isso prolongava a leitura sem ajudar na decisão. A edição reduz o texto, diferencia as ações e deixa os detalhes nas páginas de apoio.

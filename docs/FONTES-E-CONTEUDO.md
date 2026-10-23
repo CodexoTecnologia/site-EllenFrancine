@@ -19,6 +19,16 @@ A logo foi fornecida pelo usuário em `EllenFrancineLogo.jfif`; cópia preservad
 
 Os desenhos de referências de estilo são SVGs de autoria do projeto, identificados como ilustrações. Não são técnicas ou resultados de clientes.
 
+## FAQ geral — 23/10/2026
+
+O FAQ passou a responder dúvidas de primeira aplicação em tom de conversa: desconforto, efeito natural, retenção, manutenção, higiene, danos aos fios e sensibilidade ocular. São informações gerais, não um protocolo individual nem comprovação de técnicas ou produtos utilizados pela Ellen. Não há promessa de ausência de alergias, duração fixa ou procedimento sem riscos.
+
+- [FDA: segurança de cosméticos para os olhos](https://www.fda.gov/cosmetics/cosmetic-products/eye-cosmetic-safety): adesivos podem causar irritação e alergia; sintomas não devem ser ignorados.
+- [Canadian Association of Optometrists: extensões de cílios](https://opto.ca/eye-health-library/eyelash-extensions): ciclo dos fios, riscos de danos e cuidados com a aplicação.
+- [London Lash: banho e extensões](https://londonlash.com/blogs/news/how-to-shower-with-eyelash-extensions): orientações após molhar variam com os produtos e a cura do adesivo. Como a marca usada pela Ellen não foi informada, não foi prescrito um intervalo universal de 24 ou 48 horas.
+
+As respostas sobre valores, tempo de aplicação e horários continuam dependendo de confirmação com a profissional. A linguagem em primeira pessoa é copy proposta para a marca, baseada no tom do post de lançamento fornecido pelo usuário.
+
 Uma ilustração editorial chegou a ser gerada durante o início do trabalho, antes de o usuário fornecer o post. Ela não foi selecionada nem incluída no site: o material da própria marca se tornou a escolha visual da implementação.
 
 ## Referências técnicas

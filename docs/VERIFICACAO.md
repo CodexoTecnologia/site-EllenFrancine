@@ -1,5 +1,13 @@
 # Verificação da implementação
 
+## Tom pessoal e FAQ de primeira aplicação — 23/10/2026
+
+- Home revisada em primeira pessoa: abertura, convite para modelos, galeria, estilos, apresentação e contato com linguagem mais próxima do post de lançamento.
+- FAQ ampliado de quatro para onze perguntas, incluindo desconforto, efeito natural, duração, manutenção, higiene e sensibilidade ocular. Referências e limites em `docs/FONTES-E-CONTEUDO.md`.
+- Respostas continuam renderizadas em HTML dentro de `details` nativos. Metadados, canal de contato, galeria e indexação foram preservados.
+- `npm run verify`: check sem erros/avisos/hints, build concluído e seis testes passaram. Formatação e `git diff --check` passaram.
+- Prévia local respondeu HTTP 200. A revisão visual desktop/mobile continua pendente pelo bloqueio de acesso à aba na ferramenta de navegador registrado na revisão anterior; não houve tentativa de contornar essa restrição. Sem novas medições de desempenho ou publicação de domínio.
+
 ## Contato, novas fotos, movimento e SEO — 22/10/2026
 
 - Faixa de revisão removida do layout. WhatsApp confirmado pelo usuário: +55 41 99917-9039, configurado como padrão dos contatos e incluído na página de contato e rodapé.

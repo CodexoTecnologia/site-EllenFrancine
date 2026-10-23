@@ -48,7 +48,7 @@ export const styles = [
     id: 'leve',
     number: '01',
     name: 'Leve & natural',
-    description: 'Um realce suave para o dia a dia.',
+    description: 'Para quem ama um detalhe delicado no dia a dia.',
     note: 'Uma referência de estilo para começar a conversa.',
     curve: 1,
   },
@@ -56,7 +56,7 @@ export const styles = [
     id: 'definido',
     number: '02',
     name: 'Definição elegante',
-    description: 'Mais definição no contorno do olhar.',
+    description: 'Um pouco mais de destaque, sem deixar a delicadeza de lado.',
     note: 'O resultado desejado será conversado com a Ellen.',
     curve: 2,
   },
@@ -64,7 +64,7 @@ export const styles = [
     id: 'marcante',
     number: '03',
     name: 'Presença marcante',
-    description: 'Para quem gosta de um olhar com mais presença.',
+    description: 'Seu olhar em destaque, do jeitinho que você gosta.',
     note: 'Técnica e disponibilidade são confirmadas no atendimento.',
     curve: 3,
   },
@@ -72,21 +72,57 @@ export const styles = [
 
 export const faq = [
   {
-    question: 'Onde a Ellen atende?',
-    answer: `A Ellen atende extensão de cílios em ${site.neighborhood}, ${site.city} (${site.state}). Confirme o endereço ${site.contactInstruction} antes do horário.`,
+    question: 'Dói colocar extensão de cílios?',
+    answer:
+      'A aplicação não deve doer. Se sentir ardor, pontadas ou qualquer desconforto, me avise na hora para interrompermos. Pode me avisar sem receio, combinado?',
+  },
+  {
+    question: 'Quero algo bem natural. Dá para fazer?',
+    answer:
+      'A extensão de cílios não precisa ter um efeito supermarcado. Me conta o que você gosta e, se tiver, traz uma foto de inspiração. Vamos conversar sobre as opções disponíveis e o que faz sentido para os seus fios.',
+  },
+  {
+    question: 'Quanto tempo a extensão de cílios dura?',
+    answer:
+      'Não existe um prazo igual para todo mundo. Os fios naturais se renovam, e a retenção também varia com a aplicação e os cuidados no dia a dia. Por isso, a manutenção faz parte da conversa antes de começar.',
+  },
+  {
+    question: 'Preciso fazer manutenção?',
+    answer:
+      'Com a renovação dos cílios naturais, o efeito vai mudando e podem aparecer espaços. Para manter o visual, pode ser necessário fazer manutenção. O intervalo e a possibilidade de reposição dependem de como os fios estão; a gente conversa sobre isso no atendimento.',
+  },
+  {
+    question: 'Posso lavar o rosto e molhar os cílios?',
+    answer:
+      'A higiene faz parte dos cuidados, sim! O momento de molhar após a aplicação e os produtos indicados dependem do adesivo usado. Peça essas orientações no atendimento e evite esfregar ou puxar os fios.',
+  },
+  {
+    question: 'A extensão estraga os meus cílios naturais?',
+    answer:
+      'As extensões exigem cuidado: peso inadequado, tração e remoção incorreta podem danificar os fios. Não puxe nem tente tirar sozinha. Se quiser remover ou perceber algo diferente, me chama para conversar sobre o próximo passo.',
+  },
+  {
+    question: 'Tenho olhos sensíveis ou alergia. Posso colocar?',
+    answer:
+      'Me conta isso antes de agendar, inclusive se já teve reação a alguma cola ou cosmético. Os adesivos podem causar irritação e alergia. Se seus olhos estiverem irritados ou você tiver alguma condição ocular, converse com seu oftalmologista antes de fazer a extensão.',
+  },
+  {
+    question: 'Quanto tempo preciso separar para a aplicação?',
+    answer:
+      'Separe um momento sem correria. O tempo varia conforme a aplicação e, no treinamento, pode ser maior. Eu te conto a previsão antes de marcarmos, para você conseguir se organizar com calma.',
+  },
+  {
+    question: 'Onde você atende?',
+    answer: `Estou em ${site.neighborhood}, ${site.city} (${site.state}). Se você procura uma Lash Designer por aqui, me chama ${site.contactInstruction}. Te passo o endereço e a gente combina os detalhes antes da sua visita.`,
   },
   {
     question: site.recruitmentActive ? 'Como participar como modelo?' : 'Há vagas para modelos?',
     answer: site.recruitmentActive
-      ? `Fale ${site.contactInstruction} para saber as condições e a disponibilidade para treinamento em extensão de cílios.`
-      : `Não há campanha de modelos aberta. Consulte a Ellen sobre atendimento ${site.contactInstruction}.`,
+      ? `Vou adorar ter você nesse começo! Me chama ${site.contactInstruction} e eu te explico as condições do treinamento, os valores e os horários disponíveis. Você pode tirar suas dúvidas antes de decidir.`
+      : `No momento, não estou com campanha de modelos aberta. Mas pode me chamar ${site.contactInstruction} para conversar sobre o atendimento.`,
   },
   {
-    question: 'Como agendar um horário?',
-    answer: `Fale com a Ellen ${site.contactInstruction}. O horário é confirmado na conversa.`,
-  },
-  {
-    question: 'Quais são as técnicas, os valores e a duração?',
-    answer: `A Ellen informa as técnicas disponíveis, os valores e o tempo de atendimento ${site.contactInstruction}, antes de agendar.`,
+    question: 'Como vejo os valores e marco meu horário?',
+    answer: `Me chama ${site.contactInstruction} e me conta o que você está buscando. Eu te passo as opções disponíveis, os valores e a previsão de duração. Seu horário fica combinado quando a gente confirmar tudo na conversa.`,
   },
 ] as const;
