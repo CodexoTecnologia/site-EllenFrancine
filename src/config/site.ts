@@ -23,7 +23,7 @@ export const site = {
   contactLabel: `Conversar no ${contactChannel}`,
   contactChannel,
   contactInstruction,
-  primaryCta: recruitmentActive ? 'Quero ser modelo' : 'Conversar com a Ellen',
+  primaryCta: 'Falar com a Ellen',
   domain,
   preview: import.meta.env.PUBLIC_SITE_MODE !== 'production',
   streetAddress: import.meta.env.PUBLIC_STREET_ADDRESS?.trim() || null,
@@ -41,3 +41,11 @@ export const navigation = [
 ] as const;
 
 export const locationLabel = `${site.neighborhood} · ${site.city}, ${site.state}`;
+
+export const styleMessage = (name: string) =>
+  `Olá, Ellen! Gostei do estilo ${name.toLocaleLowerCase('pt-BR')}. Quero saber sobre o atendimento.`;
+export function contactWithMessage(message: string) {
+  const url = new URL(site.contactUrl);
+  if (site.whatsapp) url.searchParams.set('text', message);
+  return url.href;
+}

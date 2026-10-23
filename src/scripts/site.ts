@@ -3,6 +3,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { initGallery } from './gallery';
 import { initMobileContact } from './mobile-contact';
 import { initHero } from './hero';
+import { contactWithMessage, styleMessage } from '../config/site';
 
 export function initSite() {
   const preference = window.matchMedia('(prefers-reduced-motion: reduce)');
@@ -46,20 +47,14 @@ export function initSite() {
 
   document.querySelectorAll<HTMLElement>('[data-style-explorer]').forEach((explorer) => {
     const options = explorer.querySelectorAll<HTMLButtonElement>('[data-style-select]');
-    const message = explorer.querySelector<HTMLTextAreaElement>('[data-style-message]');
-    const copy = explorer.querySelector<HTMLButtonElement>('[data-copy-message]');
-    const status = explorer.querySelector<HTMLElement>('[data-copy-status]');
-    let copyAttempt = 0;
+    const contact = explorer.querySelector<HTMLAnchorElement>('[data-style-contact]');
     let styleTween: gsap.core.Tween | undefined;
     transientMotion.push(() => styleTween?.revert());
-    const note = 'Uma referência de estilo; técnica e resultado são conversados com a Ellen.';
     options.forEach((button) => {
       button.disabled = false;
       const select = () => {
-        copyAttempt++;
-        if (message)
-          message.value = `Olá, Ellen! Conheci seu site e gostei do estilo ${button.dataset.styleName?.toLocaleLowerCase('pt-BR')}. Quero conversar sobre as possibilidades do atendimento.`;
-        if (status) status.textContent = note;
+        if (contact && button.dataset.styleName)
+          contact.href = contactWithMessage(styleMessage(button.dataset.styleName));
         styleTween?.revert();
         options.forEach((option) => option.setAttribute('aria-pressed', String(option === button)));
         explorer.querySelectorAll<HTMLElement>('[data-style-art]').forEach((art) => {
@@ -78,28 +73,7 @@ export function initSite() {
       button.addEventListener('click', select);
       cleanupCallbacks.push(() => button.removeEventListener('click', select));
     });
-    const onCopy = async () => {
-      if (!message) return;
-      const attempt = ++copyAttempt;
-      try {
-        if (!navigator.clipboard?.writeText) throw new Error('Clipboard unavailable');
-        await navigator.clipboard.writeText(message.value);
-        if (status && attempt === copyAttempt)
-          status.textContent = 'Mensagem copiada. Abra o canal da Ellen e cole na conversa.';
-      } catch {
-        if (attempt !== copyAttempt) return;
-        message.focus();
-        message.select();
-        if (status) status.textContent = 'Selecione e copie o texto acima para levar à conversa.';
-      }
-    };
-    if (copy) copy.hidden = false;
-    copy?.addEventListener('click', onCopy);
-    cleanupCallbacks.push(() => {
-      copyAttempt++;
-      styleTween?.revert();
-      copy?.removeEventListener('click', onCopy);
-    });
+    cleanupCallbacks.push(() => styleTween?.revert());
   });
 
   function configureMotion() {

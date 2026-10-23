@@ -14,18 +14,12 @@ import { site, locationLabel } from '../config/site';
         stroke-linecap="round"
       />
     </svg>
-    <p class="eyebrow">SEU OLHAR MERECE ESSE CARINHO</p>
     <h2>
-      Seu próximo olhar
+      Vamos realçar
       <br />
-      <span>começa com uma conversa.</span>
+      <span>o seu olhar?</span>
     </h2>
-    <p>
-      {site.recruitmentActive
-        ? 'Quer conhecer o atendimento ou participar como modelo de treinamento?'
-        : 'Quer conhecer as possibilidades do atendimento?'}{' '}
-      Fale comigo {site.contactInstruction}.
-    </p>
+    <p>Tire suas dúvidas e combine seu horário {site.contactInstruction}.</p>
     <Action href={site.contactUrl} external>
       {site.contactLabel}
     </Action>

@@ -93,6 +93,12 @@ test('campanha e canal de contato seguem a configuração em todas as páginas',
     }
   }
   assert.ok(!home.includes('Uma primeira versão, feita para a Ellen'), 'Aviso removido');
+  const styleContact = home.match(/<a\b[^>]*data-style-contact[^>]*href="([^"]+)"/);
+  assert.ok(styleContact, 'A referência de estilo tem um contato funcional sem JavaScript');
+  const styleUrl = new URL(styleContact[1].replaceAll('&amp;', '&'));
+  assert.equal(styleUrl.hostname, 'wa.me');
+  assert.equal(styleUrl.pathname, `/${whatsapp}`);
+  assert.match(styleUrl.searchParams.get('text'), /Olá, Ellen!.*leve & natural/i);
 });
 
 const schemaFor = (route) => {
@@ -128,8 +134,16 @@ test('schema usa contato confirmado e relações coerentes sem inventar dados co
     (node) => node['@type'] === 'ImageGallery',
   );
   assert.equal(imageGallery.image.length, 5);
-  for (const route of ['/', '/resultados/'])
-    assert.equal((htmlFor(route).match(/data-gallery-photo/g) || []).length, 5);
+  assert.equal(
+    (htmlFor('/').match(/data-gallery-photo/g) || []).length,
+    3,
+    'Home mostra uma seleção',
+  );
+  assert.equal(
+    (htmlFor('/resultados/').match(/data-gallery-photo/g) || []).length,
+    5,
+    'Galeria mantém o ensaio completo',
+  );
 });
 
 test('SEO tem descrições únicas, canônicos condicionais e 404 sempre fora do índice', () => {

@@ -48,7 +48,7 @@ export const styles = [
     id: 'leve',
     number: '01',
     name: 'Leve & natural',
-    description: 'Para quem se identifica com um olhar delicado e uma presença mais sutil.',
+    description: 'Um realce suave para o dia a dia.',
     note: 'Uma referência de estilo para começar a conversa.',
     curve: 1,
   },
@@ -56,7 +56,7 @@ export const styles = [
     id: 'definido',
     number: '02',
     name: 'Definição elegante',
-    description: 'Para quem gosta de realçar o contorno do olhar com um pouco mais de expressão.',
+    description: 'Mais definição no contorno do olhar.',
     note: 'O resultado desejado será conversado com a Ellen.',
     curve: 2,
   },
@@ -64,7 +64,7 @@ export const styles = [
     id: 'marcante',
     number: '03',
     name: 'Presença marcante',
-    description: 'Para quem ama um olhar que aparece e faz parte da sua identidade.',
+    description: 'Para quem gosta de um olhar com mais presença.',
     note: 'Técnica e disponibilidade são confirmadas no atendimento.',
     curve: 3,
   },
@@ -73,23 +73,20 @@ export const styles = [
 export const faq = [
   {
     question: 'Onde a Ellen atende?',
-    answer: `Em ${site.neighborhood}, ${site.city}, ${site.state}. Fale ${site.contactInstruction} para confirmar o endereço e combinar o seu atendimento.`,
+    answer: `A Ellen atende extensão de cílios em ${site.neighborhood}, ${site.city} (${site.state}). Confirme o endereço ${site.contactInstruction} antes do horário.`,
   },
   {
-    question: site.recruitmentActive
-      ? 'Como faço para ser modelo de treinamento?'
-      : 'Há vagas para modelos?',
+    question: site.recruitmentActive ? 'Como participar como modelo?' : 'Há vagas para modelos?',
     answer: site.recruitmentActive
-      ? `A Ellen divulgou um convite para modelos de treinamento. Fale ${site.contactInstruction} para confirmar a disponibilidade, as condições, o tempo e o investimento antes de combinar o horário.`
-      : `Não há uma campanha de modelos aberta neste site. Fale ${site.contactInstruction} para conhecer as possibilidades de atendimento.`,
+      ? `Fale ${site.contactInstruction} para saber as condições e a disponibilidade para treinamento em extensão de cílios.`
+      : `Não há campanha de modelos aberta. Consulte a Ellen sobre atendimento ${site.contactInstruction}.`,
   },
   {
     question: 'Como agendar um horário?',
-    answer: `O primeiro contato é ${site.contactInstruction}. Combine o atendimento e aguarde a confirmação do horário com a Ellen. O site não faz reservas automáticas.`,
+    answer: `Fale com a Ellen ${site.contactInstruction}. O horário é confirmado na conversa.`,
   },
   {
     question: 'Quais são as técnicas, os valores e a duração?',
-    answer:
-      'Esses detalhes são informados diretamente pela Ellen. Na conversa, você pode tirar dúvidas sobre a técnica disponível, o tempo necessário, o investimento e a manutenção.',
+    answer: `A Ellen informa as técnicas disponíveis, os valores e o tempo de atendimento ${site.contactInstruction}, antes de agendar.`,
   },
 ] as const;

@@ -1,6 +1,6 @@
 # SEO e dados estruturados
 
-Atualizado em 22/10/2026.
+Atualizado em 23/10/2026.
 
 ## Implementado
 
@@ -20,9 +20,9 @@ Atualizado em 22/10/2026.
 2. Configurar `PUBLIC_SITE_URL=https://dominio-confirmado` e `PUBLIC_SITE_MODE=production` na hospedagem e gerar novo deploy.
 3. Conferir HTTPS, redirecionamento para a origem escolhida, status 404, canônicos, `/robots.txt`, `/sitemap-index.xml` e a imagem de compartilhamento na URL publicada.
 4. Validar o JSON-LD no Schema Markup Validator e os recursos suportados no Rich Results Test.
-5. Conectar Search Console e enviar o sitemap quando houver acesso à propriedade. O perfil de empresa no Google e sua elegibilidade dependem dos dados reais e da verificação da Ellen.
+5. Enviar o sitemap ao Search Console quando houver acesso à propriedade. A propriedade de domínio pode ser verificada antes do deploy por DNS; o sitemap e a solicitação de indexação devem esperar a publicação final. O perfil de empresa no Google e sua elegibilidade dependem dos dados reais e da verificação da Ellen.
 
-Os passos 3–5 exigem a hospedagem/domínio publicados. Não foram executados nesta alteração. Uma URL da Vercel também pode ser adotada explicitamente como origem, mas não foi presumida como domínio definitivo.
+As verificações do site, o envio do sitemap e a solicitação de indexação exigem a hospedagem/domínio publicados. Não foram executados nesta alteração. Uma URL da Vercel também pode ser adotada explicitamente como origem, mas não foi presumida como domínio definitivo. O roteiro de cadastro e a auditoria de conteúdo estão em [Revisão de UX e Search Console](REVISAO-UX-E-SEARCH-CONSOLE.md).
 
 ## Validação local
 
