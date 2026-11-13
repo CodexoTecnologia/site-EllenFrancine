@@ -133,7 +133,7 @@ test('schema usa contato confirmado e relações coerentes sem inventar dados co
   const imageGallery = schemaFor('/resultados/')['@graph'].find(
     (node) => node['@type'] === 'ImageGallery',
   );
-  assert.equal(imageGallery.image.length, 5);
+  assert.equal(imageGallery.image.length, 7);
   assert.equal(
     (htmlFor('/').match(/data-gallery-photo/g) || []).length,
     3,
@@ -141,7 +141,7 @@ test('schema usa contato confirmado e relações coerentes sem inventar dados co
   );
   assert.equal(
     (htmlFor('/resultados/').match(/data-gallery-photo/g) || []).length,
-    5,
+    7,
     'Galeria mantém o ensaio completo',
   );
 });

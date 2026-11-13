@@ -8,7 +8,8 @@ const count = variant === 1 ? 13 : variant === 2 ? 21 : 27;
 const strokes = Array.from({ length: count }, (_, index) => {
   const t = index / (count - 1);
   const x = 55 + t * 390;
-  const y = 172 - Math.sin(t * Math.PI) * 92;
+  const curveT = (x - 45) / 410;
+  const y = 180 - 410 * curveT * (1 - curveT);
   const length =
     variant === 1
       ? 22 + Math.sin(t * Math.PI) * 28

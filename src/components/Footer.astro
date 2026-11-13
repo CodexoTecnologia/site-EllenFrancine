@@ -20,6 +20,11 @@ import { site, locationLabel } from '../config/site';
         <Icon name="instagram" size={18} />
       </a>
       <p>{locationLabel}</p>
+      {site.linksUrl && (
+        <a class="footer-instagram" href={site.linksUrl} target="_blank" rel="noopener noreferrer">
+          Conheça meus links <Icon size={16} />
+        </a>
+      )}
     </div>
   </div>
   <div class="shell footer-credit">

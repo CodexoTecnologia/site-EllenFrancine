@@ -14,13 +14,13 @@ const enlarged = await Promise.all(
 
 <Base
   title="Galeria de cílios em Colombo"
-  description="Veja as imagens da publicação de lançamento de Ellen Francine, Lash Designer em Colombo. Acompanhe essa nova fase e converse pelo Instagram."
+  description="Veja fotos publicadas por Ellen Francine, Lash Designer em Colombo, e conheça seu trabalho com extensão de cílios."
 >
   <PageHero
     eyebrow="GALERIA / ELLEN FRANCINE"
     title="De perto,"
     accent="o olhar conta mais."
-    description="Imagens da minha publicação de lançamento. Um registro dessa nova fase e um convite para você acompanhar os próximos passos."
+    description="Um pouco do meu trabalho e dos olhares que fazem parte dessa jornada."
   />
   <section class="section paper" data-surface="light">
     <div class="shell">
@@ -49,11 +49,15 @@ const enlarged = await Promise.all(
             </a>
             <figcaption>
               <div>
-                <p class="eyebrow">0{index + 1} / PUBLICAÇÃO DE LANÇAMENTO</p>
+                <p class="eyebrow">0{index + 1} / INSTAGRAM DA ELLEN</p>
                 <h2>{item.title}</h2>
                 <p>{item.detail}</p>
               </div>
-              <a href={site.launchPost} target="_blank" rel="noopener noreferrer">
+              <a
+                href={'source' in item ? item.source : site.launchPost}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Ver no Instagram <Icon size={14} />
               </a>
             </figcaption>
@@ -61,8 +65,8 @@ const enlarged = await Promise.all(
         ))}
       </div>
       <p class="source-note">
-        Cinco imagens da publicação de lançamento de {site.instagramHandle}. A galeria apresenta
-        esse ensaio; técnicas e detalhes de atendimento são confirmados diretamente com a Ellen.
+        Imagens publicadas por {site.instagramHandle}. Técnicas e detalhes de atendimento são
+        confirmados diretamente com a Ellen.
       </p>
     </div>
   </section>

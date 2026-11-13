@@ -16,6 +16,7 @@ export const site = {
   state: 'PR',
   instagram,
   instagramHandle: '@ellenfrancine.lash',
+  linksUrl: import.meta.env.PUBLIC_LINKS_URL?.trim() || 'https://links.codexo.com.br/ellenfrancine/',
   whatsapp,
   telephone: `+${whatsapp}`,
   phoneLabel: whatsapp.replace(/^(55)(\d{2})(\d{5})(\d{4})$/, '+$1 ($2) $3-$4'),

@@ -112,7 +112,7 @@ export function buildSeoGraph(path: string, title: string, description: string, 
     graph.push({
       '@type': 'ImageGallery',
       '@id': url('/resultados/#ensaio'),
-      name: 'Ensaio de lançamento',
+      name: 'Galeria de Ellen Francine',
       isPartOf: { '@id': pageId },
       image: gallery.map((item) => ({
         '@type': 'ImageObject',
@@ -121,7 +121,7 @@ export function buildSeoGraph(path: string, title: string, description: string, 
         width: item.image.width,
         height: item.image.height,
         creditText: site.instagramHandle,
-        isBasedOn: site.launchPost,
+        isBasedOn: 'source' in item ? item.source : site.launchPost,
       })),
     });
   return { '@context': 'https://schema.org', '@graph': graph };
