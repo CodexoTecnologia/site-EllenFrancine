@@ -3,19 +3,10 @@ import photo2 from '../assets/modelo-instagram-02.webp';
 import photo3 from '../assets/modelo-instagram-03.webp';
 import photo4 from '../assets/modelo-instagram-04.webp';
 import photo5 from '../assets/modelo-instagram-05.webp';
-import photo6 from '../assets/instagram-novembro-12.webp';
 import photo7 from '../assets/instagram-novembro-02.webp';
 import { site } from '../config/site';
 
 export const gallery = [
-  {
-    image: photo6,
-    alt: 'Olhar com extensão de cílios em publicação da Ellen de 12 de novembro.',
-    title: 'Um olhar renovado.',
-    detail: 'Detalhes de um trabalho compartilhado pela Ellen.',
-    position: '50% 40%',
-    source: 'https://www.instagram.com/p/Dfp8bumD-Lw/',
-  },
   {
     image: photo7,
     alt: 'Detalhe de extensão de cílios em publicação da Ellen de 2 de novembro.',

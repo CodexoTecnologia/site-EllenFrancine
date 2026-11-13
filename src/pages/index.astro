@@ -9,7 +9,7 @@ import GalleryViewer from '../components/GalleryViewer.astro';
 import HeroShowcase from '../components/HeroShowcase.astro';
 import { site, contactWithMessage, styleMessage } from '../config/site';
 import { gallery, styles, faq } from '../data/content';
-const featured = [gallery[0], gallery[1], gallery[5]];
+const featured = [gallery[0], gallery[1], gallery[4]];
 const enlarged = await Promise.all(
   featured.map((item) => getImage({ src: item.image, width: 1200, format: 'webp' })),
 );
