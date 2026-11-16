@@ -4,49 +4,42 @@ interface Props {
   class?: string;
 }
 const { variant = 1, class: className } = Astro.props;
-const count = variant === 1 ? 13 : variant === 2 ? 21 : 27;
-const strokes = Array.from({ length: count }, (_, index) => {
-  const t = index / (count - 1);
-  const x = 55 + t * 390;
-  const curveT = (x - 45) / 410;
-  const y = 180 - 410 * curveT * (1 - curveT);
+const count = variant === 1 ? 22 : variant === 2 ? 29 : 36;
+const lashes = Array.from({ length: count }, (_, index) => {
+  const t = 0.035 + (index / (count - 1)) * 0.93;
+  const x = 65 + 370 * t;
+  const y = 130 + 210 * t * (1 - t);
+  const fullness = Math.sin(Math.PI * t);
   const length =
-    variant === 1
-      ? 22 + Math.sin(t * Math.PI) * 28
-      : variant === 2
-        ? 26 + t * 46
-        : 38 + Math.sin(t * Math.PI) * 57;
-  const dx = variant === 2 ? 12 + t * 46 : (t - 0.5) * (variant === 3 ? 86 : 54);
-  return `M${x},${y} Q${x + dx * 0.35},${y - length * 0.6} ${x + dx},${y - length}`;
+    (variant === 1 ? 24 : variant === 2 ? 31 : 40) + fullness * (variant === 3 ? 25 : 18);
+  const sweep = (t - 0.35) * (variant === 1 ? 22 : variant === 2 ? 38 : 48);
+  const width = variant === 3 ? 2.8 : 2.1;
+  return `M ${x.toFixed(2)} ${y.toFixed(2)} C ${(x + sweep * 0.14).toFixed(2)} ${(y + length * 0.55).toFixed(2)} ${(x + sweep * 0.6).toFixed(2)} ${(y + length * 0.9).toFixed(2)} ${(x + sweep).toFixed(2)} ${(y + length).toFixed(2)} C ${(x + sweep * 0.44).toFixed(2)} ${(y + length * 0.86).toFixed(2)} ${(x + sweep * 0.06 - width).toFixed(2)} ${(y + length * 0.5).toFixed(2)} ${(x - width).toFixed(2)} ${y.toFixed(2)} Z`;
 });
 ---
 
-<svg class:list={['lash-study', className]} viewBox="0 -24 500 284" fill="none" aria-hidden="true">
+<svg class:list={['lash-study', className]} viewBox="0 0 500 270" fill="none" aria-hidden="true">
   <path
-    class="lash-outline"
-    d="M45 180Q250-25 455 180Q250 264 45 180Z"
+    d="M91 103 C155 56 332 51 411 104"
+    stroke="currentColor"
+    stroke-width="1.2"
+    stroke-linecap="round"
+    opacity=".32"
+  />
+  <path
+    d="M65 130 Q250 235 435 130"
+    stroke="currentColor"
+    stroke-width="2.2"
+    stroke-linecap="round"
+  />
+  {lashes.map((d) => (
+    <path d={d} fill="currentColor" />
+  ))}
+  <path
+    d="M65 130 C53 126 45 121 39 115 M435 130 C447 126 455 119 461 111"
     stroke="currentColor"
     stroke-width="1.4"
+    stroke-linecap="round"
+    opacity=".65"
   />
-  <ellipse cx="250" cy="144" rx="42" ry="57" stroke="currentColor" stroke-width="1" opacity="0.5" />
-  <ellipse cx="250" cy="145" rx="17" ry="24" fill="currentColor" opacity="0.16" />
-  {strokes.map((d) => (
-    <path
-      d={d}
-      stroke="currentColor"
-      stroke-width={variant === 3 ? 2.8 : 1.8}
-      stroke-linecap="round"
-    />
-  ))}
-  {variant === 3 &&
-    strokes.map((d) => (
-      <path
-        d={d}
-        transform="translate(5 3)"
-        stroke="currentColor"
-        stroke-width="1.2"
-        stroke-linecap="round"
-        opacity="0.55"
-      />
-    ))}
 </svg>
