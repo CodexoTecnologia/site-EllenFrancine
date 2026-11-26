@@ -1,0 +1,46 @@
+---
+import { services } from '../data/content';
+import { site, contactWithMessage } from '../config/site';
+import Icon from './Icon.astro';
+---
+
+<section class="section paper" data-surface="light" id="valores" aria-labelledby="prices-title">
+  <div class="shell prices-layout">
+    <div class="prices-intro">
+      <p class="eyebrow">EXTENSÃO DE CÍLIOS</p>
+      <h2 id="prices-title">
+        Um olhar que é <span>todo seu.</span>
+      </h2>
+      <p>
+        Conheça as opções e escolha a sua favorita. Se tiver dúvidas, me chama: vamos conversar
+        sobre o que você procura.
+      </p>
+    </div>
+    <div>
+      <ul class="prices-list">
+        {services.map((service) => (
+          <li>
+            <div>
+              <span class="prices-name">{service.name}</span>
+              <strong>{service.price}</strong>
+            </div>
+            <a
+              href={contactWithMessage(
+                `Olá, Ellen! Gostaria de saber mais sobre ${service.name} e agendar um horário.`,
+              )}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={`Conversar sobre ${service.name}`}
+            >
+              Conversar <Icon size={16} />
+            </a>
+          </li>
+        ))}
+      </ul>
+      <p class="prices-note">
+        Para conhecer duração, manutenção e horários disponíveis, fale comigo{' '}
+        {site.contactInstruction}.
+      </p>
+    </div>
+  </div>
+</section>

@@ -2064,3 +2064,75 @@ html[data-motion='reduced'] .codexo-credit-arrow svg {
     transform: none;
   }
 }
+
+/* Tabela de serviços */
+.prices-layout {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: var(--s8);
+  align-items: start;
+}
+.prices-intro h2 {
+  max-width: 520px;
+}
+.prices-intro h2 span {
+  color: var(--wine);
+}
+.prices-intro > p:not(.eyebrow) {
+  max-width: 420px;
+  margin-top: var(--s4);
+  color: var(--light-muted);
+  line-height: 1.8;
+}
+.prices-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid var(--light-control-line);
+}
+.prices-list li {
+  padding: 24px 0;
+  border-bottom: 1px solid var(--light-line);
+}
+.prices-list li > div {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.prices-name {
+  font: 600 clamp(20px, 2.1vw, 28px)/1.25 var(--display);
+}
+.prices-list strong {
+  color: var(--wine-hover);
+  font: 600 20px/1.3 var(--body);
+  white-space: nowrap;
+}
+.prices-list a {
+  color: var(--wine-hover);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+  font-weight: 600;
+}
+.prices-note {
+  margin-top: 24px;
+  font-size: 13px;
+  color: var(--light-muted);
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .prices-layout {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s5);
+  }
+  .prices-list li {
+    padding: 18px 0;
+  }
+  .prices-list strong {
+    font-size: 18px;
+  }
+}

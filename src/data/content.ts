@@ -6,6 +6,12 @@ import photo5 from '../assets/modelo-instagram-05.webp';
 import photo7 from '../assets/instagram-novembro-02.webp';
 import { site } from '../config/site';
 
+export const services = [
+  { name: 'Volume Brasileiro', price: 'R$ 110,00' },
+  { name: 'Volume 4D', price: 'R$ 120,00' },
+  { name: 'Volume 5D', price: 'R$ 130,00' },
+] as const;
+
 export const gallery = [
   {
     image: photo7,
@@ -132,6 +138,6 @@ export const faq = [
   },
   {
     question: 'Como vejo os valores e marco meu horário?',
-    answer: `Me chama ${site.contactInstruction} e me conta o que você está buscando. Eu te passo as opções disponíveis, os valores e a previsão de duração. Seu horário fica combinado quando a gente confirmar tudo na conversa.`,
+    answer: `A tabela de extensão de cílios traz Volume Brasileiro por R$ 110,00, Volume 4D por R$ 120,00 e Volume 5D por R$ 130,00. Me chama ${site.contactInstruction} para tirar dúvidas e combinar seu horário.`,
   },
 ] as const;
