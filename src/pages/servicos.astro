@@ -3,12 +3,11 @@ import { Image } from 'astro:assets';
 import Base from '../layouts/Base.astro';
 import PageHero from '../components/PageHero.astro';
 import Action from '../components/Action.astro';
-import LashStudy from '../components/LashStudy.astro';
 import ContactSection from '../components/ContactSection.astro';
 import HowItWorks from '../components/HowItWorks.astro';
 import ServicePrices from '../components/ServicePrices.astro';
 import { site } from '../config/site';
-import { gallery, styles } from '../data/content';
+import { gallery } from '../data/content';
 ---
 
 <Base
@@ -66,34 +65,6 @@ import { gallery, styles } from '../data/content';
     </div>
   </section>
   <ServicePrices />
-  <section class="section shell">
-    <div class="section-heading">
-      <div>
-        <p class="eyebrow">REFERÊNCIAS PARA NOSSA CONVERSA</p>
-        <h2>
-          Cada estilo,
-          <br />
-          <span>uma expressão.</span>
-        </h2>
-      </div>
-      <p>
-        Escolha uma técnica para conversarmos sobre o resultado que você deseja. Os desenhos são ilustrações conceituais.
-      </p>
-    </div>
-    <div class="style-rows">
-      {styles.map((style) => (
-        <article id={style.id}>
-          <span>{style.number}</span>
-          <div>
-            <h3>{style.name}</h3>
-            <p>{style.description}</p>
-            <p class="plain-note">{style.note}</p>
-          </div>
-          <LashStudy variant={style.curve} />
-        </article>
-      ))}
-    </div>
-  </section>
   <HowItWorks />
   <ContactSection />
 </Base>

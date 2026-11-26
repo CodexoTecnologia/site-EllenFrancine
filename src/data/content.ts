@@ -62,30 +62,34 @@ export const styles = [
   {
     id: 'leve',
     number: '01',
-    name: 'Volume Brasileiro',
-    description: 'R$ 110,00',
+    name: services[0].name,
+    description: services[0].price,
     note: 'Converse comigo para conhecer essa técnica.',
     curve: 1,
   },
   {
     id: 'definido',
     number: '02',
-    name: 'Volume 4D',
-    description: 'R$ 120,00',
+    name: services[1].name,
+    description: services[1].price,
     note: 'Vamos conversar sobre o efeito que você procura.',
     curve: 2,
   },
   {
     id: 'marcante',
     number: '03',
-    name: 'Volume 5D',
-    description: 'R$ 130,00',
+    name: services[2].name,
+    description: services[2].price,
     note: 'Me chama para saber mais sobre essa técnica.',
     curve: 3,
   },
 ] as const;
 
 export const faq = [
+  {
+    question: 'Qual técnica de cílios combina comigo?',
+    answer: `Tudo depende do efeito que você gosta e dos seus cílios naturais. Atendo com Volume Brasileiro, 4D e 5D. Se estiver em dúvida, me conte ${site.contactInstruction} o que procura e, se quiser, envie uma foto de inspiração. Vamos conversar sobre as possibilidades.`,
+  },
   {
     question: 'Dói colocar extensão de cílios?',
     answer:
@@ -138,6 +142,6 @@ export const faq = [
   },
   {
     question: 'Como vejo os valores e marco meu horário?',
-    answer: `A tabela de extensão de cílios traz Volume Brasileiro por R$ 110,00, Volume 4D por R$ 120,00 e Volume 5D por R$ 130,00. Me chama ${site.contactInstruction} para tirar dúvidas e combinar seu horário.`,
+    answer: `A tabela de extensão de cílios traz ${services.map((service) => `${service.name}: ${service.price}`).join('; ')}. Me chama ${site.contactInstruction} para tirar dúvidas e combinar seu horário.`,
   },
 ] as const;
