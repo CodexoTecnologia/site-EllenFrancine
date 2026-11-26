@@ -98,7 +98,7 @@ test('campanha e canal de contato seguem a configuração em todas as páginas',
   const styleUrl = new URL(styleContact[1].replaceAll('&amp;', '&'));
   assert.equal(styleUrl.hostname, 'wa.me');
   assert.equal(styleUrl.pathname, `/${whatsapp}`);
-  assert.match(styleUrl.searchParams.get('text'), /Olá, Ellen!.*leve & natural/i);
+  assert.match(styleUrl.searchParams.get('text'), /Olá, Ellen!.*volume brasileiro/i);
 });
 
 const schemaFor = (route) => {
